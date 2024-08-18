@@ -5,11 +5,13 @@ const nextBtn = document.getElementById('nextBtn');
 
 function showPage(index) {
     pages.forEach((page, i) => {
-        page.classList.remove('active', 'previous');
+        page.classList.remove('active', 'previous', 'next');
         if (i === index) {
             page.classList.add('active');
-        } else if (i === index - 1) {
+        } else if (i < index) {
             page.classList.add('previous');
+        } else {
+            page.classList.add('next');
         }
     });
     updateButtons();
