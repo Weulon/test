@@ -54,19 +54,23 @@ body {
     opacity: 1;
     z-index: 2; /* Перемещаем активную страницу на передний план */
     transform: rotateY(0deg); /* Прямая ориентация активной страницы */
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
 }
 
 .page.previous {
-    left: 0;
+    left: -100%; /* Перемещаем страницу за пределы контейнера слева */
     opacity: 0;
     transform: rotateY(-180deg); /* Скрываем предыдущую страницу с эффектом поворота */
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
 }
 
 .page.next {
-    left: 100%;
+    left: 100%; /* Перемещаем страницу за пределы контейнера справа */
     opacity: 0;
     transform: rotateY(180deg); /* Позиционируем следующую страницу для плавного перехода */
+    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
 }
+
 
 /* Стили для кнопок навигации */
 .nav-btn {
