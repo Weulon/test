@@ -70,27 +70,28 @@ body {
 
 /* Стили для кнопок навигации */
 .nav-btn {
-    position: absolute;
-    bottom: 10px; /* Перемещение кнопок в самый низ */
-    background-color: #000; /* Черный цвет фона */
-    color: #fff; /* Белый цвет текста */
+    position: fixed;
+    bottom: 20px; /* Располагаем кнопки на 20px выше нижнего края */
+    background-color: #ff4500;
+    color: white;
     border: none;
     padding: 10px 20px;
     font-size: 1.5em;
     cursor: pointer;
     border-radius: 50%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 100; /* Устанавливаем высокий z-index для кнопок, чтобы они всегда были поверх других элементов */
 }
 
 #prevBtn {
-    left: 10px;
+    left: 20px; /* Располагаем кнопку в левом нижнем углу */
 }
 
 #nextBtn {
-    right: 10px;
+    right: 20px; /* Располагаем кнопку в правом нижнем углу */
 }
 
 .nav-btn:disabled {
-    background-color: #cccccc; /* Серый цвет фона для неактивной кнопки */
+    background-color: #cccccc;
     cursor: not-allowed;
 }
