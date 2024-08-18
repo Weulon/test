@@ -8,23 +8,36 @@ body {
 
 h1 {
     font-size: 2.5em;
-    color: #ff4500;  /* Яркий оранжево-красный цвет для заголовка */
-    text-shadow: 2px 2px #ffa07a;  /* Теневой эффект для заголовка */
+    color: #ff4500;
+    text-shadow: 2px 2px #ffa07a;
 }
 
 #coin {
-    width: 120px;  /* Чуть больше монетка */
+    width: 120px;
     cursor: pointer;
-    transition: transform 0.2s ease;  /* Плавный эффект увеличения */
+    transition: transform 0.2s ease;
 }
 
 #coin:hover {
-    transform: scale(1.1);  /* Эффект увеличения при наведении */
+    transform: scale(1.1);
 }
 
 #score {
     font-size: 28px;
     margin-top: 20px;
-    color: #32cd32;  /* Яркий зеленый цвет для счёта */
-    text-shadow: 2px 2px #7fff00;  /* Теневой эффект для счёта */
+    color: #32cd32;
+    text-shadow: 2px 2px #7fff00;
 }
+
+/* Отключаем увеличение при двойном тапе */
+html, body {
+    -webkit-touch-callout: none; /* Отключает вызов меню при долгом нажатии */
+    -webkit-user-select: none;   /* Отключает выделение текста */
+    user-select: none;           /* Для других браузеров */
+    -webkit-tap-highlight-color: transparent; /* Убирает подсветку при нажатии */
+}
+
+* {
+    max-width: 100%;  /* Предотвращает нежелательное масштабирование контента */
+}
+
