@@ -3,7 +3,7 @@ body {
     background-color: #ffe4e1;
     text-align: center;
     margin-top: 50px;
-    touch-action: manipulation; /* Предотвращает увеличение на мобильных устройствах */
+    touch-action: manipulation;
 }
 
 h1 {
@@ -16,28 +16,29 @@ h1 {
     width: 120px;
     cursor: pointer;
     transition: transform 0.2s ease;
+    animation: spin 2s linear infinite; /* Вращение монетки */
 }
 
 #coin:hover {
     transform: scale(1.1);
 }
 
-#score {
+#score, #combo, #timer {
     font-size: 28px;
     margin-top: 20px;
     color: #32cd32;
     text-shadow: 2px 2px #7fff00;
 }
 
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
 /* Отключаем увеличение при двойном тапе */
 html, body {
-    -webkit-touch-callout: none; /* Отключает вызов меню при долгом нажатии */
-    -webkit-user-select: none;   /* Отключает выделение текста */
-    user-select: none;           /* Для других браузеров */
-    -webkit-tap-highlight-color: transparent; /* Убирает подсветку при нажатии */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
-
-* {
-    max-width: 100%;  /* Предотвращает нежелательное масштабирование контента */
-}
-
