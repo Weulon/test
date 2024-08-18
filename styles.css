@@ -1,8 +1,9 @@
 body {
-    font-family: 'Comic Sans MS', sans-serif;  /* Веселый шрифт для игрового настроения */
-    background-color: #ffe4e1;  /* Светлый розовый фон */
+    font-family: 'Comic Sans MS', sans-serif;
+    background-color: #ffe4e1;
     text-align: center;
     margin-top: 50px;
+    touch-action: manipulation; /* Предотвращает увеличение на мобильных устройствах */
 }
 
 h1 {
