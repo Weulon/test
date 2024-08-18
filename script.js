@@ -1,47 +1,54 @@
-let score = 0;
-let combo = 1;
-let lastClickTime = 0;
-let timer = 30;  // Время игры 30 секунд
+let currentPage = 0;
+const pages = document.querySelectorAll('.page');
 
-const coin = document.getElementById('coin');
-const scoreDisplay = document.getElementById('score');
-const comboDisplay = document.getElementById('combo');
-const timerDisplay = document.getElementById('timer');
-
-// Обновление таймера
-const timerInterval = setInterval(() => {
-    timer--;
-    timerDisplay.textContent = `Time left: ${timer}s`;
-
-    if (timer <= 0) {
-        clearInterval(timerInterval);
-        alert(`Game Over! Your final score is ${score}`);
-        resetGame();
-    }
-}, 1000);
-
-coin.addEventListener('click', () => {
-    const now = new Date().getTime();
-    // Если пользователь нажимает быстро (менее чем за 500 мс)
-    if (now - lastClickTime < 500) {
-        combo++;
-    } else {
-        combo = 1;
-    }
-    
-    score += combo;
-    scoreDisplay.textContent = `Score: ${score}`;
-    comboDisplay.textContent = `Combo: x${combo}`;
-    
-    lastClickTime = now;
-});
-
-function resetGame() {
-    score = 0;
-    combo = 1;
-    timer = 30;
-    scoreDisplay.textContent = 'Score: 0';
-    comboDisplay.textContent = 'Combo: x1';
-    timerDisplay.textContent = 'Time left: 30s';
-    setInterval(timerInterval, 1000);
+function showPage(index) {
+    pages.forEach((page, i) => {
+        page.classList.remove('active', 'previous');
+        if (i === index) {
+            page.classList.add('active');
+        } else if (i === index - 1) {
+            page.classList.add('previous');
+        }
+    });
 }
+
+function handleSwipe(event) {
+    const direction = event.deltaX > 0 ? 'left' : 'right';
+    if (direction === 'right' && currentPage > 0) {
+        currentPage--;
+    } else if (direction === 'left' && currentPage < pages.length - 1) {
+        currentPage++;
+    }
+    showPage(currentPage);
+}
+
+// Инициализация первой страницы
+showPage(currentPage);
+
+// Добавляем обработчик жестов свайпа
+document.addEventListener('swiped-left', handleSwipe);
+document.addEventListener('swiped-right', handleSwipe);
+
+// Функции для обработки жестов свайпа (регистрируем события)
+(function() {
+    let touchstartX = 0;
+    let touchendX = 0;
+
+    function checkDirection() {
+        if (touchendX < touchstartX) {
+            document.dispatchEvent(new Event('swiped-left'));
+        }
+        if (touchendX > touchstartX) {
+            document.dispatchEvent(new Event('swiped-right'));
+        }
+    }
+
+    document.addEventListener('touchstart', e => {
+        touchstartX = e.changedTouches[0].screenX;
+    });
+
+    document.addEventListener('touchend', e => {
+        touchendX = e.changedTouches[0].screenX;
+        checkDirection();
+    });
+})();
