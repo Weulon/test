@@ -1,5 +1,7 @@
 let currentPage = 0;
 const pages = document.querySelectorAll('.page');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
 
 function showPage(index) {
     pages.forEach((page, i) => {
@@ -10,45 +12,29 @@ function showPage(index) {
             page.classList.add('previous');
         }
     });
+    updateButtons();
 }
 
-function handleSwipe(event) {
-    const direction = event.deltaX > 0 ? 'left' : 'right';
-    if (direction === 'right' && currentPage > 0) {
-        currentPage--;
-    } else if (direction === 'left' && currentPage < pages.length - 1) {
-        currentPage++;
-    }
-    showPage(currentPage);
+function updateButtons() {
+    prevBtn.disabled = currentPage === 0;
+    nextBtn.disabled = currentPage === pages.length - 1;
 }
+
+// Кнопка "Назад"
+prevBtn.addEventListener('click', () => {
+    if (currentPage > 0) {
+        currentPage--;
+        showPage(currentPage);
+    }
+});
+
+// Кнопка "Вперед"
+nextBtn.addEventListener('click', () => {
+    if (currentPage < pages.length - 1) {
+        currentPage++;
+        showPage(currentPage);
+    }
+});
 
 // Инициализация первой страницы
 showPage(currentPage);
-
-// Добавляем обработчик жестов свайпа
-document.addEventListener('swiped-left', handleSwipe);
-document.addEventListener('swiped-right', handleSwipe);
-
-// Функции для обработки жестов свайпа (регистрируем события)
-(function() {
-    let touchstartX = 0;
-    let touchendX = 0;
-
-    function checkDirection() {
-        if (touchendX < touchstartX) {
-            document.dispatchEvent(new Event('swiped-left'));
-        }
-        if (touchendX > touchstartX) {
-            document.dispatchEvent(new Event('swiped-right'));
-        }
-    }
-
-    document.addEventListener('touchstart', e => {
-        touchstartX = e.changedTouches[0].screenX;
-    });
-
-    document.addEventListener('touchend', e => {
-        touchendX = e.changedTouches[0].screenX;
-        checkDirection();
-    });
-})();
