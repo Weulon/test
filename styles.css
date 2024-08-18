@@ -17,7 +17,6 @@ body {
     background-color: #fff;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-    perspective: 1000px; /* Добавляем перспективу для 3D-эффекта */
 }
 
 .page {
@@ -25,57 +24,37 @@ body {
     height: 100%;
     position: absolute;
     top: 0;
-    left: 100%; /* Начальное положение страницы за пределами контейнера */
-    opacity: 0; /* Начальное состояние - невидимо */
-    z-index: 1;
-    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+    left: 0;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    backface-visibility: hidden; /* Скрываем заднюю сторону страницы */
 }
 
-.page img {
+.dialogue-box {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     max-width: 90%;
-    max-height: 60%;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
-.page p {
+.character-name {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.dialogue-text {
     font-size: 1.2em;
-    padding: 0 10px;
 }
 
-.page.active {
-    left: 0;
-    opacity: 1;
-    z-index: 2; /* Перемещаем активную страницу на передний план */
-    transform: rotateY(0deg); /* Прямая ориентация активной страницы */
-    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
-}
-
-.page.previous {
-    left: -100%; /* Перемещаем страницу за пределы контейнера слева */
-    opacity: 0;
-    transform: rotateY(-180deg); /* Скрываем предыдущую страницу с эффектом поворота */
-    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
-}
-
-.page.next {
-    left: 100%; /* Перемещаем страницу за пределы контейнера справа */
-    opacity: 0;
-    transform: rotateY(180deg); /* Позиционируем следующую страницу для плавного перехода */
-    transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
-}
-
-
-/* Стили для кнопок навигации */
 .nav-btn {
     position: fixed;
-    bottom: 20px; /* Располагаем кнопки на 20px выше нижнего края */
+    bottom: 20px;
     background-color: #ff4500;
     color: white;
     border: none;
@@ -83,19 +62,12 @@ body {
     font-size: 1.5em;
     cursor: pointer;
     border-radius: 50%;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    z-index: 100; /* Устанавливаем высокий z-index для кнопок, чтобы они всегда были поверх других элементов */
 }
 
 #prevBtn {
-    left: 20px; /* Располагаем кнопку в левом нижнем углу */
+    left: 20px;
 }
 
 #nextBtn {
-    right: 20px; /* Располагаем кнопку в правом нижнем углу */
-}
-
-.nav-btn:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
+    right: 20px;
 }
