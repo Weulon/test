@@ -2,29 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Зайчик - Книга</title>
+    <title>LumCity Mini App</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="book-container">
-        <div class="page" id="page1">
-            <img src="https://github.com/Weulon/test/blob/main/aloACIen3j42r9tR_boJJ1FsVAU-1920.jpg?raw=true" alt="Page 1 Image">
-            <p>Здесь будет текст для первой страницы книги...</p>
+    <div class="app-container" id="main-menu">
+        <div class="header">
+            <button class="close-btn">Закрыть</button>
+            <div class="app-title">
+                <h1>LumCity</h1>
+                <span>мини-приложение</span>
+            </div>
+            <button class="menu-btn">•••</button>
         </div>
-        <div class="page" id="page2">
-            <img src="https://github.com/Weulon/test/blob/main/maxresdefault.jpg?raw=true" alt="Page 2 Image">
-            <p>Здесь будет текст для второй страницы книги...</p>
+        <div class="balance-section">
+            <h2>Total Balance</h2>
+            <div class="balance-amount">
+                <div class="icon">💧</div>
+                <span class="amount" id="total-balance">0.00000</span>
+            </div>
+            <div class="additional-balances">
+                <div class="balance-item">⚪ <span id="additional-balance-1">0.67042</span></div>
+                <div class="balance-item">💎 <span id="additional-balance-2">2.26000</span></div>
+            </div>
         </div>
-        <div class="page" id="page2">
-            <img src="https://github.com/Weulon/test/blob/main/aloACIen3j42r9tR_boJJ1FsVAU-1920.jpg?raw=true" alt="Page 1 Image">
-            <p>Алексей жил был и потом не жил и не был. Конец...</p>
+        <button class="referrals-btn">Referrals</button>
+        <div class="mining-section">
+            <div class="golt-miner">
+                <h3>GOLT Miner</h3>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <div class="collected">Collected: <span id="collected-amount">0.00877</span></div>
+                <button class="claim-btn" id="claim-main">Claim</button>
+            </div>
+            <div class="drop-pool">
+                <h3>DROP Pool</h3>
+                <div class="timer">🕒 19:56:21</div>
+                <div class="your-portion">Your portion: <span>0.15446%</span></div>
+                <button class="participate-btn">Participate</button>
+            </div>
         </div>
-        <!-- Добавляйте больше страниц по аналогии -->
+    </div>
 
-        <!-- Кнопки для перелистывания страниц -->
-        <button id="prevBtn" class="nav-btn">&lt;</button>
-        <button id="nextBtn" class="nav-btn">&gt;</button>
+    <!-- New GOLT Miner Menu -->
+    <div class="golt-miner-menu" id="golt-miner-menu" style="display: none;">
+        <div class="header">
+            <button class="back-btn" id="back-btn">←</button>
+            <div class="app-title">
+                <h1>GOLT Miner</h1>
+            </div>
+        </div>
+        <div class="miner-content">
+            <div class="collected-section">
+                <p>⚪ Collected</p>
+                <div class="amount-collected" id="mining-amount">0.00000</div>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+            </div>
+            <button class="claim-btn" id="claim-golt">Claim</button>
+        </div>
     </div>
 
     <script src="script.js"></script>
