@@ -1,43 +1,32 @@
-let currentPage = parseInt(localStorage.getItem('currentPage')) || 0;
-const pages = document.querySelectorAll('.page');
-const prevBtn = document.getElementById('prevBtn');
-const nextBtn = document.getElementById('nextBtn');
+let collectedAmount = 0; // Текущее количество монет в разделе "Collected"
+let totalBalance = 0; // Общий баланс монет
 
-function showPage(index) {
-    pages.forEach((page, i) => {
-        page.classList.remove('active', 'previous', 'next');
-        if (i === index) {
-            page.classList.add('active');
-        } else if (i < index) {
-            page.classList.add('previous');
-        } else {
-            page.classList.add('next');
-        }
-    });
-    updateButtons();
-    localStorage.setItem('currentPage', index);  // Сохраняем текущую страницу
+// Функция для увеличения количества монет в разделе "Collected" каждую минуту
+function startMining() {
+    setInterval(() => {
+        collectedAmount += 100;
+        document.getElementById('mining-amount').textContent = collectedAmount.toFixed(5);
+    }, 60000); // 60000 миллисекунд = 1 минута
 }
 
-function updateButtons() {
-    prevBtn.disabled = currentPage === 0;
-    nextBtn.disabled = currentPage === pages.length - 1;
-}
-
-// Кнопка "Назад"
-prevBtn.addEventListener('click', () => {
-    if (currentPage > 0) {
-        currentPage--;
-        showPage(currentPage);
-    }
+// Обработчик для кнопки "Claim" в основном меню
+document.querySelector('#claim-main').addEventListener('click', function() {
+    document.getElementById('main-menu').style.display = 'none';
+    document.getElementById('golt-miner-menu').style.display = 'block';
+    startMining(); // Запуск процесса добычи монет
 });
 
-// Кнопка "Вперед"
-nextBtn.addEventListener('click', () => {
-    if (currentPage < pages.length - 1) {
-        currentPage++;
-        showPage(currentPage);
-    }
+// Обработчик для кнопки "Назад"
+document.querySelector('#back-btn').addEventListener('click', function() {
+    document.getElementById('golt-miner-menu').style.display = 'none';
+    document.getElementById('main-menu').style.display = 'block';
 });
 
-// Инициализация страницы из localStorage или первой страницы
-showPage(currentPage);
+// Обработчик для кнопки "Claim" в меню "GOLT Miner"
+document.querySelector('#claim-golt').addEventListener('click', function() {
+    totalBalance += collectedAmount; // Добавляем собранные монеты к общему балансу
+    document.getElementById('total-balance').textContent = totalBalance.toFixed(5); // Обновляем отображение общего баланса
+    collectedAmount = 0; // Сбрасываем собранные монеты
+    document.getElementById('mining-amount').textContent = collectedAmount.toFixed(5); // Обновляем отображение собранных монет
+    alert('Монеты успешно собраны!');
+});
