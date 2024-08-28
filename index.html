@@ -24,8 +24,8 @@
                 <span class="amount" id="total-balance">0.00000</span>
             </div>
             <div class="additional-balances">
-                <div class="balance-item">⚪ <span id="additional-balance-1">0.67042</span></div>
-                <div class="balance-item">💎 <span id="additional-balance-2">2.26000</span></div>
+                <div class="balance-item">⚪ <span id="additional-balance-1">0.00000</span></div>
+                <div class="balance-item">💎 <span id="additional-balance-2">0</span></div>
             </div>
         </div>
         <button class="referrals-btn">Referrals</button>
@@ -33,16 +33,15 @@
             <div class="golt-miner">
                 <h3>GOLT Miner</h3>
                 <div class="progress-bar">
-                    <div class="progress"></div>
+                    <div class="progress" id="progress-bar"></div>
                 </div>
-                <div class="collected">Collected: <span id="collected-amount">0.00877</span></div>
+                <div class="collected">Collected: <span id="collected-amount">0.00240</span></div>
                 <button class="claim-btn" id="claim-main">Claim</button>
             </div>
+            <!-- Updated DROP Pool Block -->
             <div class="drop-pool">
                 <h3>DROP Pool</h3>
-                <div class="timer">🕒 19:56:21</div>
-                <div class="your-portion">Your portion: <span>0.15446%</span></div>
-                <button class="participate-btn">Participate</button>
+                <div class="soon-text">SOON</div>
             </div>
         </div>
     </div>
@@ -58,12 +57,45 @@
         <div class="miner-content">
             <div class="collected-section">
                 <p>⚪ Collected</p>
-                <div class="amount-collected" id="mining-amount">0.00000</div>
+                <div class="amount-collected" id="mining-amount">0.00240</div>
                 <div class="progress-bar">
-                    <div class="progress"></div>
+                    <div class="progress" id="progress-bar-animation"></div>
                 </div>
             </div>
             <button class="claim-btn" id="claim-golt">Claim</button>
+            <div class="animation-text" id="claim-animation" style="display: none;">Coins Claimed!</div>
+        </div>
+
+        <!-- Upgrades Section -->
+        <div class="upgrades-section">
+            <h3>Upgrades</h3>
+            <div class="current-balance">
+                <span class="balance-label">Мой баланс:</span> ⚪ <span id="current-balance">0.00000</span>
+            </div>
+            <div class="upgrade-item">
+                <div class="upgrade-info">
+                    <div class="upgrade-level">Pickaxe / <span id="current-level">1</span> LVL</div>
+                    <div class="earnings-rate">+ <span id="earnings-per-hour">0.0026</span> / hr</div>
+                </div>
+                <div class="upgrade-cost">
+                    <span id="upgrade-cost">0.0012</span> ⚪
+                </div>
+                <button class="lvl-up-btn" id="lvl-up-btn">Lvl Up</button>
+                <div class="animation-text" id="levelup-animation" style="display: none;">Level Up!</div>
+            </div>
+
+            <!-- Storage Upgrade -->
+            <div class="upgrade-item">
+                <div class="upgrade-info">
+                    <div class="upgrade-level">Storage / <span id="storage-level">1</span> LVL</div>
+                    <div class="storage-capacity">max <span id="max-storage-hours">1</span> hours</div>
+                </div>
+                <div class="upgrade-cost">
+                    <span id="storage-upgrade-cost">0.0012</span> ⚪
+                </div>
+                <button class="lvl-up-btn" id="storage-upgrade-btn">Lvl Up</button>
+                <div class="animation-text" id="storage-animation" style="display: none;">Storage Upgraded!</div>
+            </div>
         </div>
     </div>
 
