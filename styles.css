@@ -88,11 +88,21 @@ body {
     gap: 10px;
 }
 
-.golt-miner, .drop-pool {
+.drop-pool {
     background-color: #4B47D4;
     padding: 20px;
     border-radius: 10px;
     width: 48%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.soon-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
 }
 
 h3 {
@@ -165,4 +175,83 @@ h3 {
     color: white;
     font-size: 24px;
     margin-right: auto;
+}
+
+/* Существующие стили остаются */
+
+.upgrades-section {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #4B47D4;
+    border-radius: 10px;
+}
+
+.current-balance {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.balance-label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.upgrade-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #4B47D4;
+    border-radius: 10px;
+}
+
+.upgrade-info {
+    text-align: left;
+}
+
+.upgrade-cost {
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.lvl-up-btn {
+    background-color: #fff;
+    color: #3733C9;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.animation-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #4B47D4;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    z-index: 10;
+}
+
+.show-animation {
+    opacity: 1;
+    transform: translate(-50%, -60%);
+}
+
+.hide-animation {
+    opacity: 0;
+    transform: translate(-50%, -50%);
 }
