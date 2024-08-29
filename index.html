@@ -29,19 +29,29 @@
             </div>
         </div>
         <button class="referrals-btn">Referrals</button>
+        
+        <!-- Main mining section with GOLT Miner and DROP Pool -->
         <div class="mining-section">
-            <div class="golt-miner">
-                <h3>GOLT Miner</h3>
-                <div class="progress-bar">
-                    <div class="progress" id="progress-bar"></div>
+            <div class="miner-container">
+                <!-- GOLT Miner Block -->
+                <div class="golt-miner">
+                    <h3>GOLT Miner</h3>
+                    <div class="progress-bar">
+                        <div class="progress" id="progress-bar"></div>
+                    </div>
+                    <div class="collected">Collected: <span id="collected-amount">0.00240</span></div>
+                    <button class="claim-btn" id="claim-main">Claim</button> <!-- Сохраняем исходный функционал блока Claim -->
                 </div>
-                <div class="collected">Collected: <span id="collected-amount">0.00240</span></div>
-                <button class="claim-btn" id="claim-main">Claim</button>
-            </div>
-            <!-- Updated DROP Pool Block -->
-            <div class="drop-pool">
-                <h3>DROP Pool</h3>
-                <div class="soon-text">SOON</div>
+
+                <!-- DROP Pool Block -->
+                <div class="drop-pool">
+                    <h3>DROP Pool</h3>
+                    <div class="pool-info">
+                        <div>🕒 <span id="drop-timer">18:41:24</span></div>
+                        <div>Your portion: <span id="drop-portion">0.000000%</span></div>
+                    </div>
+                    <button class="participate-btn" id="participate-btn">Participate</button>
+                </div>
             </div>
         </div>
     </div>
