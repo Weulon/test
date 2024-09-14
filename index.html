@@ -2,14 +2,11 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Курсы по 3D моделированию и печати</title>
-    <!-- Подключение шрифтов и стилей -->
     <link rel="stylesheet" href="styles.css">
-    <!-- Подключение иконок Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Подключение шрифта Roboto -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
-    <!-- Подключение Telegram Web Apps SDK -->
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
@@ -20,20 +17,13 @@
             <p>Выберите интересующий вас раздел:</p>
             <div class="menu-buttons">
                 <button class="menu-btn" onclick="showMenu('courses')">
-                    <span class="material-icons">book</span>
-                    Курсы
-                </button>
-                <button class="menu-btn" onclick="showMenu('enroll')">
-                    <span class="material-icons">edit_note</span>
-                    Записаться
+                    <span class="material-icons">book</span> Курсы
                 </button>
                 <button class="menu-btn" onclick="showMenu('support')">
-                    <span class="material-icons">support_agent</span>
-                    Поддержка
+                    <span class="material-icons">support_agent</span> Поддержка
                 </button>
                 <button class="menu-btn" onclick="showMenu('faq')">
-                    <span class="material-icons">help_outline</span>
-                    FAQ
+                    <span class="material-icons">help_outline</span> FAQ
                 </button>
             </div>
         </div>
@@ -42,63 +32,30 @@
         <div id="courses" class="menu">
             <h2>📚 Курсы</h2>
             <div class="course-list">
-                <!-- Курс 1 -->
                 <div class="course-item">
                     <h3>План 1: Оптимизация моделей для 3D печати</h3>
                     <p><strong>Цена:</strong> 7 000 руб.</p>
-                    <p>Погрузитесь в профессиональные техники подготовки 3D моделей для идеальной печати.</p>
-                    <button onclick="showCourseDetails(1)">Подробнее</button>
+                    <button class="details-btn" onclick="openModal('plan1')">Подробнее</button>
                 </div>
-                <!-- Курс 2 -->
                 <div class="course-item">
                     <h3>План 2: Поиск и подготовка моделей</h3>
                     <p><strong>Цена:</strong> 15 000 руб. (вместе с Планом 3)</p>
-                    <p>Раскройте богатство доступных 3D моделей и научитесь эффективно их использовать.</p>
-                    <button onclick="showCourseDetails(2)">Подробнее</button>
+                    <button class="details-btn" onclick="openModal('plan2')">Подробнее</button>
                 </div>
-                <!-- Курс 3 -->
                 <div class="course-item">
                     <h3>План 3: Продажа моделей и пассивный доход</h3>
                     <p><strong>Цена:</strong> 15 000 руб. (вместе с Планом 2)</p>
-                    <p>Превратите свои навыки в стабильный источник дохода и станьте успешным предпринимателем в сфере 3D печати.</p>
-                    <button onclick="showCourseDetails(3)">Подробнее</button>
+                    <button class="details-btn" onclick="openModal('plan3')">Подробнее</button>
                 </div>
-                <!-- Курс 4 -->
                 <div class="course-item">
                     <h3>План 4: Полное сопровождение и развитие бизнеса</h3>
                     <p><strong>Цена:</strong> 25 000 руб. (за все 4 плана)</p>
-                    <p>Получите всестороннюю поддержку и необходимые инструменты для быстрого старта и успешного развития вашего бизнеса в сфере 3D печати.</p>
-                    <button onclick="showCourseDetails(4)">Подробнее</button>
+                    <button class="details-btn" onclick="openModal('plan4')">Подробнее</button>
                 </div>
             </div>
             <div class="navigation">
-                <button onclick="showMenu('main-menu')">Назад</button>
+                <button class="back-btn" onclick="showMenu('main-menu')">Назад</button>
             </div>
-        </div>
-
-        
-
-        <!-- Раздел "Записаться" -->
-        <div id="enroll" class="menu">
-            <h2>📝 Записаться на курс</h2>
-            <form id="enroll-form">
-                <!-- Поле "Имя и фамилия" -->
-                <div class="form-step active">
-                    <p>Введите ваши данные:</p>
-                    <input type="text" id="fullname" placeholder="Имя и фамилия" required>
-                </div>
-                <!-- Поле "Мой Telegram @nickname" -->
-                <div class="form-step">
-                    <p>Ваш Telegram @никнейм:</p>
-                    <input type="text" id="telegram-nickname" placeholder="@nickname" required>
-                    <button type="button" class="insert-nick-btn" onclick="insertTelegramUsername()">Вставить мой ник</button>
-                </div>
-                <!-- Кнопки навигации -->
-                <div class="navigation">
-                    <button type="button" onclick="submitForm()">Отправить заявку</button>
-                    <button type="button" onclick="showMenu('main-menu')">Назад</button>
-                </div>
-            </form>
         </div>
 
         <!-- Раздел "Поддержка" -->
@@ -109,34 +66,40 @@
                 <a href="https://t.me/dikayl" target="_blank">@dikayl</a>
             </div>
             <div class="navigation">
-                <button onclick="showMenu('main-menu')">Назад</button>
+                <button class="back-btn" onclick="showMenu('main-menu')">Назад</button>
             </div>
         </div>
 
         <!-- Раздел "FAQ" -->
         <div id="faq" class="menu">
             <h2>❓ Часто задаваемые вопросы</h2>
-            <!-- Добавьте вопросы и ответы -->
             <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(1)">Как проходит обучение?</button>
-                <div id="faq-answer-1" class="faq-answer">
+                <button class="faq-btn" onclick="toggleFaq(1)">Как проходит обучение?</button>
+                <div id="faq-answer-1" class="faq-answer" style="display:none;">
                     <p>Обучение проходит в формате онлайн-лекций и практических занятий с доступом к материалам 24/7.</p>
                 </div>
             </div>
             <div class="faq-item">
-                <button class="faq-question" onclick="toggleFaq(2)">Как можно оплатить курс?</button>
-                <div id="faq-answer-2" class="faq-answer">
+                <button class="faq-btn" onclick="toggleFaq(2)">Как можно оплатить курс?</button>
+                <div id="faq-answer-2" class="faq-answer" style="display:none;">
                     <p>Вы можете оплатить курс банковской картой, электронным кошельком или через систему быстрых платежей.</p>
                 </div>
             </div>
-            <!-- Добавьте больше вопросов по аналогии -->
             <div class="navigation">
-                <button onclick="showMenu('main-menu')">Назад</button>
+                <button class="back-btn" onclick="showMenu('main-menu')">Назад</button>
             </div>
         </div>
-    </div>
 
-    <!-- Подключение JavaScript -->
-    <script src="script.js"></script>
+        <!-- Модальное окно -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal()">&times;</span>
+                <div id="modal-body"></div>
+                <button class="buy-btn" onclick="openPurchaseLink()">Купить</button>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </div>
 </body>
 </html>
