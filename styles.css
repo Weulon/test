@@ -11,31 +11,29 @@ body {
 
 .container {
     width: 100%;
-    max-width: 100%;
+    height: 100vh;
     margin: 0;
     background-color: #FFFFFF;
-    padding: 30px; /* Увеличили padding */
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Сделаем тень более заметной */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    border-radius: 20px; /* Слегка закруглим углы для лучшего вида */
 }
 
 h1, h2, h3 {
     color: #0D47A1;
     text-align: center;
-    font-size: 28px; /* Увеличим размер заголовков */
-    margin-bottom: 20px;
+    font-size: 28px;
+    margin-bottom: 15px;
 }
 
 p {
     color: #333333;
-    font-size: 18px; /* Увеличим размер текста */
+    font-size: 18px;
     text-align: center;
-    margin-bottom: 30px; /* Сделаем отступы больше */
+    margin-bottom: 30px;
 }
 
 .menu {
@@ -48,105 +46,136 @@ p {
     width: 100%;
 }
 
-.menu-buttons, .navigation {
+.menu-buttons {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Увеличим расстояние между кнопками */
+    gap: 20px;
     width: 100%;
     align-items: center;
 }
 
-.menu-btn, .navigation button {
+.menu-btn, .details-btn, .buy-btn, .back-btn, .faq-btn {
     background: linear-gradient(45deg, #FF5722, #FFC107);
     color: #FFFFFF;
     border: none;
-    padding: 25px; /* Увеличим высоту кнопок */
-    font-size: 20px; /* Сделаем текст крупнее */
-    border-radius: 40px; /* Закруглим углы кнопок для плавности */
+    padding: 25px;
+    font-size: 22px;
+    border-radius: 40px;
     cursor: pointer;
-    width: 100%; /* Кнопки теперь занимают всю ширину экрана */
-    max-width: 600px; /* Максимальная ширина для больших экранов */
-    transition: background 0.3s ease, transform 0.2s ease; /* Добавим легкую анимацию */
+    width: 90%;
+    max-width: 600px;
+    transition: background 0.3s ease;
     text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Легкая тень для всех кнопок */
 }
 
-.menu-btn:hover, .navigation button:hover {
+.menu-btn:hover, .details-btn:hover, .buy-btn:hover, .back-btn:hover, .faq-btn:hover {
     background: linear-gradient(45deg, #FFC107, #FF5722);
-    transform: scale(1.05); /* Легкое увеличение кнопки при наведении */
 }
 
-.menu-btn .material-icons {
-    margin-right: 15px; /* Увеличим отступ у иконок */
+.details-btn {
+    background: linear-gradient(45deg, #00ACC1, #26C6DA);
 }
 
-.form-step {
-    display: flex;
-    flex-direction: column;
-    gap: 25px; /* Больше воздуха между полями формы */
-    margin-bottom: 30px;
-    width: 100%;
-    align-items: center;
+.back-btn {
+    margin-top: 30px;
 }
 
-.form-step input {
-    padding: 20px; /* Увеличим высоту полей формы */
-    font-size: 18px; /* Увеличим размер текста внутри полей */
-    border: 1px solid #CCCCCC;
-    border-radius: 10px;
-    width: 100%;
-    max-width: 600px; /* Максимальная ширина для полей ввода */
-}
-
+/* Стиль для раздела "Поддержка", чтобы блок выглядел в едином стиле */
 .admin-contact {
-    margin-top: 30px; /* Увеличим отступ сверху */
+    background-color: #FFEB3B;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-align: center;
+    margin: 30px 0;
 }
 
 .admin-contact a {
-    font-size: 22px; /* Увеличим размер ссылки */
+    font-size: 20px;
     color: #0D47A1;
     text-decoration: none;
+    font-weight: bold;
 }
 
 .admin-contact a:hover {
     text-decoration: underline;
 }
 
-.navigation {
-    margin-top: 30px;
+/* Стиль для кнопок в разделе FAQ */
+.faq-item {
+    margin-bottom: 20px;
 }
 
-.navigation button {
-    width: 100%; /* Кнопки на всю ширину */
-    max-width: 600px; /* Максимальная ширина для больших экранов */
-    font-size: 20px;
+.faq-btn {
+    background: linear-gradient(45deg, #FF5722, #FFC107);
+    color: #FFFFFF;
     padding: 20px;
-    border-radius: 40px;
+    font-size: 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%;
+    text-align: center;
+    border: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Легкая тень */
+}
+
+.faq-btn:hover {
+    background: linear-gradient(45deg, #FFC107, #FF5722);
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #FFF;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.close-button {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.buy-btn {
+    margin-top: 20px;
+    font-size: 22px;
 }
 
 /* Медиа-запрос для мобильных устройств */
 @media (max-width: 600px) {
     h1, h2, h3 {
-        font-size: 24px;
+        font-size: 26px;
     }
 
     p {
-        font-size: 18px;
-    }
-
-    .menu-btn, .navigation button {
-        font-size: 18px;
-        padding: 22px;
-        width: 100%;
-    }
-
-    .form-step input {
         font-size: 16px;
-        padding: 18px;
-        width: 100%;
     }
 
-    .admin-contact a {
+    .menu-btn, .details-btn, .buy-btn, .back-btn, .faq-btn {
         font-size: 20px;
+        padding: 20px;
+        width: 95%;
+    }
+
+    .modal-content {
+        width: 90%;
     }
 }
