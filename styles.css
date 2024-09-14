@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    overflow: hidden; /* Убираем лишнюю прокрутку для body */
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,26 +16,26 @@ body {
     height: 100vh;
     margin: 0;
     background-color: #FFFFFF;
-    padding: 5%; /* Используем процентные отступы */
+    padding: 5%;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Выравнивание содержимого сверху */
+    justify-content: flex-start;
     align-items: center;
-    overflow-y: auto; /* Добавляем вертикальную прокрутку */
+    overflow-y: auto;
 }
 
 h1, h2, h3 {
     color: #0D47A1;
-    text-align: center;
-    font-size: 4vw; /* Относительные единицы для заголовков */
+    text-align: center; /* Центрируем заголовки */
+    font-size: 4vw;
     margin-bottom: 2vw;
 }
 
 p {
     color: #333333;
-    font-size: 3vw; /* Относительные единицы для текста */
-    text-align: center;
+    font-size: 3vw;
+    text-align: center; /* Центрируем текст */
     margin-bottom: 4vw;
 }
 
@@ -44,7 +44,7 @@ p {
     width: 100%;
     height: 100%;
     overflow-y: auto;
-    padding-bottom: 10vw; /* Нижний отступ для кнопок */
+    padding-bottom: 10vw;
 }
 
 .menu.active {
@@ -54,16 +54,16 @@ p {
 .menu-buttons {
     display: flex;
     flex-direction: column;
-    gap: 5vw; /* Используем относительные отступы */
+    gap: 5vw;
     width: 100%;
     align-items: center;
 }
 
-.menu-btn, .details-btn, .buy-btn, .back-btn, .faq-btn {
+.menu-btn, .details-btn, .buy-btn, .faq-btn {
     background: linear-gradient(45deg, #FF5722, #FFC107);
     color: #FFFFFF;
     border: none;
-    padding: 4vw; /* Используем относительные единицы для размера кнопок */
+    padding: 4vw;
     font-size: 4vw;
     border-radius: 40px;
     cursor: pointer;
@@ -72,10 +72,10 @@ p {
     transition: background 0.3s ease;
     text-align: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    margin-bottom: 5vw; /* Отступ снизу для каждой кнопки */
+    margin-bottom: 5vw;
 }
 
-.menu-btn:hover, .details-btn:hover, .buy-btn:hover, .back-btn:hover, .faq-btn:hover {
+.menu-btn:hover, .details-btn:hover, .buy-btn:hover, .faq-btn:hover {
     background: linear-gradient(45deg, #FFC107, #FF5722);
 }
 
@@ -83,13 +83,29 @@ p {
     background: linear-gradient(45deg, #00ACC1, #26C6DA);
 }
 
+/* Исправляем кнопку "Назад" */
 .back-btn {
-    margin-top: 10vw; /* Увеличиваем отступ сверху для кнопки "Назад" */
+    background: linear-gradient(45deg, #FF5722, #FFC107);
+    color: #FFFFFF;
+    border: none;
+    padding: 15px;
+    font-size: 22px;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    position: fixed; /* Фиксируем кнопку "Назад" */
+    bottom: 20px; /* Располагаем ее внизу */
+    left: 50%;
+    transform: translateX(-50%); /* Центрируем по горизонтали */
+    z-index: 1000; /* Делаем кнопку поверх других элементов */
 }
 
 .admin-contact {
     background-color: #FFEB3B;
-    padding: 4vw; /* Относительный padding */
+    padding: 4vw;
     border-radius: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-align: center;
@@ -154,7 +170,7 @@ p {
 
 .close-button {
     float: right;
-    font-size: 5vw; /* Относительный размер для кнопки закрытия */
+    font-size: 5vw;
     cursor: pointer;
 }
 
@@ -163,7 +179,7 @@ p {
     font-size: 4vw;
 }
 
-/* Медиа-запросы для небольших экранов */
+/* Медиа-запрос для мобильных устройств */
 @media (max-width: 600px) {
     h1, h2, h3 {
         font-size: 6vw;
