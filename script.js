@@ -1,131 +1,92 @@
-let collectedAmount = 0.00240; // Изначальное количество монет при старте
-let additionalBalance = 0; // Дополнительный баланс монет для улучшений
-let incrementRate = 0.0026; // Начальная скорость добычи монет в час
-let currentLevel = 1; // Начальный уровень улучшения Pickaxe
-let storageLevel = 1; // Начальный уровень улучшения Storage
-let upgradeCost = 0.0012; // Стоимость улучшения с 1-го до 2-го уровня Pickaxe
-let storageUpgradeCost = 0.0012; // Стоимость улучшения Storage
-let maxMiningHours = 1; // Начальное время майнинга в часах
-let miningTime = 0; // Время, прошедшее с начала майнинга
-
-// Функция для анимированного увеличения количества монет и обновления прогресс-бара
-function startMining() {
-    const progressBar = document.getElementById('progress-bar-animation');
-    const totalMiningTime = maxMiningHours * 3600; // Преобразование времени майнинга в секунды
-    miningTime = 0; // Сброс времени майнинга
-
-    const interval = setInterval(() => {
-        if (miningTime < totalMiningTime) {
-            collectedAmount += incrementRate / 3600; // Конвертируем в секунды для реального времени
-            document.getElementById('mining-amount').textContent = collectedAmount.toFixed(5);
-            document.getElementById('collected-amount').textContent = collectedAmount.toFixed(5);
-            miningTime++;
-
-            // Обновление прогресс-бара
-            const progressPercentage = (miningTime / totalMiningTime) * 100;
-            progressBar.style.width = progressPercentage + '%';
+// Функция для переключения между меню
+function showMenu(menuId) {
+    const menus = document.querySelectorAll('.menu');
+    menus.forEach(menu => {
+        if (menu.id === menuId) {
+            menu.classList.add('active');
         } else {
-            clearInterval(interval); // Остановка майнинга, когда время закончилось
+            menu.classList.remove('active');
         }
-    }, 1000); // Обновление каждую секунду
+    });
 }
 
-// Показ анимации
-function showAnimation(elementId) {
-    const element = document.getElementById(elementId);
-    element.style.display = 'block';
-    element.classList.add('show-animation');
-
-    setTimeout(() => {
-        element.classList.remove('show-animation');
-        element.classList.add('hide-animation');
-    }, 1000);
-
-    setTimeout(() => {
-        element.style.display = 'none';
-        element.classList.remove('hide-animation');
-    }, 1500);
+// Функции для навигации в форме записи
+function nextStep(currentStep) {
+    document.getElementById(`step-${currentStep}`).classList.remove('active');
+    document.getElementById(`step-${currentStep + 1}`).classList.add('active');
 }
 
-// Обработчик для кнопки "Claim" в основном меню
-document.querySelector('#claim-main').addEventListener('click', function() {
-    document.getElementById('main-menu').style.display = 'none';
-    document.getElementById('golt-miner-menu').style.display = 'block';
-    startMining(); // Запуск процесса добычи монет и анимации прогресса
-});
+function prevStep(currentStep) {
+    document.getElementById(`step-${currentStep}`).classList.remove('active');
+    document.getElementById(`step-${currentStep - 1}`).classList.add('active');
+}
 
-// Обработчик для кнопки "Назад"
-document.querySelector('#back-btn').addEventListener('click', function() {
-    document.getElementById('golt-miner-menu').style.display = 'none';
-    document.getElementById('main-menu').style.display = 'block';
-});
+// Функция для отображения деталей курса
+function showCourseDetails(courseId) {
+    const courseDetails = {
+        1: `<h3>План 1: Оптимизация моделей для 3D печати</h3>
+            <p><strong>Цена:</strong> 7 000 руб.</p>
+            <p>Погрузитесь в профессиональные техники подготовки 3D моделей для идеальной печати.</p>
+            <ul>
+                <li>Мастерство оптимизации моделей для качественной печати.</li>
+                <li>Разрезка крупных моделей на части.</li>
+                <li>Исправление ошибок при подготовке к печати.</li>
+                <li>Консультации по работе с Blender, ZBrush и Chitubox.</li>
+            </ul>`,
+        2: `<h3>План 2: Поиск и подготовка моделей</h3>
+            <p><strong>Цена:</strong> 15 000 руб. (вместе с Планом 3)</p>
+            <p>Раскройте богатство доступных 3D моделей и научитесь эффективно их использовать.</p>
+            <ul>
+                <li>Поиск моделей в легальных источниках.</li>
+                <li>Анализ и подготовка моделей для печати.</li>
+                <li>Создание уникальных моделей и их адаптация.</li>
+            </ul>`,
+        3: `<h3>План 3: Продажа моделей и пассивный доход</h3>
+            <p><strong>Цена:</strong> 15 000 руб. (вместе с Планом 2)</p>
+            <p>Превратите свои навыки в стабильный источник дохода и станьте успешным предпринимателем в сфере 3D печати.</p>
+            <ul>
+                <li>Поиск и привлечение заказчиков.</li>
+                <li>Маркетинг и брендирование.</li>
+                <li>Стратегии пассивного дохода через продажу моделей.</li>
+            </ul>`,
+        4: `<h3>План 4: Полное сопровождение и развитие бизнеса</h3>
+            <p><strong>Цена:</strong> 25 000 руб. (за все 4 плана)</p>
+            <p>Получите всестороннюю поддержку и необходимые инструменты для быстрого старта и успешного развития вашего бизнеса.</p>
+            <ul>
+                <li>Разработка Telegram-бота и создание сайта.</li>
+                <li>Привлечение первых клиентов.</li>
+                <li>Построение пассивного дохода и масштабирование бизнеса.</li>
+            </ul>`
+    };
 
-// Обработчик для кнопки "Claim" в меню "GOLT Miner"
-document.querySelector('#claim-golt').addEventListener('click', function() {
-    additionalBalance += collectedAmount; // Обновляем только баланс монет (⚪)
-    document.getElementById('additional-balance-1').textContent = additionalBalance.toFixed(5); // Обновляем отображение дополнительного баланса
-    document.getElementById('current-balance').textContent = document.getElementById('additional-balance-1').textContent; // Синхронизируем "Мой баланс" с отображением дополнительного баланса
-    collectedAmount = 0; // Сбрасываем собранные монеты
-    miningTime = 0; // Сбрасываем время майнинга
-    document.getElementById('mining-amount').textContent = collectedAmount.toFixed(5); // Обновляем отображение собранных монет
-    document.getElementById('collected-amount').textContent = collectedAmount.toFixed(5); // Обновляем отображение собранных монет в основном меню
-    
-    showAnimation('claim-animation'); // Показ анимации при нажатии на Claim
-});
+    document.getElementById('course-details').innerHTML = courseDetails[courseId];
+    document.getElementById('course-modal').style.display = 'block';
+}
 
-// Обработчик для кнопки "Lvl Up" для Pickaxe
-document.querySelector('#lvl-up-btn').addEventListener('click', function() {
-    if (additionalBalance >= upgradeCost) {
-        additionalBalance -= upgradeCost; // Списываем стоимость улучшения
-        document.getElementById('additional-balance-1').textContent = additionalBalance.toFixed(5);
-        document.getElementById('current-balance').textContent = document.getElementById('additional-balance-1').textContent; // Синхронизируем "Мой баланс" с отображением дополнительного баланса
-        
-        currentLevel += 1; // Увеличиваем уровень
-        document.getElementById('current-level').textContent = currentLevel;
-        
-        // Обновляем параметры в зависимости от нового уровня
-        switch (currentLevel) {
-            case 2:
-                incrementRate = 0.0080; // Скорость добычи для 2-го уровня
-                upgradeCost = 0.01; // Стоимость улучшения с 2-го до 3-го уровня
-                break;
-            case 3:
-                incrementRate = 0.0150; // Скорость добычи для 3-го уровня
-                upgradeCost = 0.015; // Стоимость улучшения с 3-го до 4-го уровня
-                break;
-            // Добавьте дополнительные уровни и их настройки по необходимости
-            default:
-                incrementRate += 0.0050; // Пример: добавляем +0.0050 для каждого последующего уровня
-                upgradeCost = (upgradeCost * 1.5).toFixed(5); // Увеличиваем стоимость следующего улучшения
-        }
-        
-        document.getElementById('earnings-per-hour').textContent = incrementRate.toFixed(4);
-        document.getElementById('upgrade-cost').textContent = upgradeCost.toFixed(4);
+// Функция для закрытия модального окна
+function closeModal() {
+    document.getElementById('course-modal').style.display = 'none';
+}
 
-        showAnimation('levelup-animation'); // Показ анимации при нажатии на Lvl Up
+// Функция для переключения отображения ответа в FAQ
+function toggleFaq(faqId) {
+    const answer = document.getElementById(`faq-answer-${faqId}`);
+    if (answer.style.display === 'block') {
+        answer.style.display = 'none';
     } else {
-        alert('Недостаточно монет для улучшения!');
+        answer.style.display = 'block';
     }
+}
+
+// Инициализация приложения
+document.addEventListener('DOMContentLoaded', () => {
+    showMenu('main-menu');
 });
 
-// Обработчик для кнопки "Lvl Up" для Storage
-document.querySelector('#storage-upgrade-btn').addEventListener('click', function() {
-    if (additionalBalance >= storageUpgradeCost) {
-        additionalBalance -= storageUpgradeCost; // Списываем стоимость улучшения Storage
-        document.getElementById('additional-balance-1').textContent = additionalBalance.toFixed(5);
-        document.getElementById('current-balance').textContent = document.getElementById('additional-balance-1').textContent; // Синхронизируем "Мой баланс" с отображением дополнительного баланса
-        
-        storageLevel += 1; // Увеличиваем уровень Storage
-        document.getElementById('storage-level').textContent = storageLevel;
-        
-        maxMiningHours += 1; // Увеличиваем время майнинга на 1 час с каждым уровнем
-        document.getElementById('max-storage-hours').textContent = maxMiningHours;
-
-        storageUpgradeCost = (storageUpgradeCost * 1.5).toFixed(5); // Увеличиваем стоимость следующего улучшения Storage
-        document.getElementById('storage-upgrade-cost').textContent = storageUpgradeCost;
-
-        showAnimation('storage-animation'); // Показ анимации при нажатии на Storage Lvl Up
-    } else {
-        alert('Недостаточно монет для улучшения Storage!');
+// Закрытие модального окна при клике вне его области
+window.onclick = function(event) {
+    const modal = document.getElementById('course-modal');
+    if (event.target === modal) {
+        modal.style.display = 'none';
     }
-});
+};
