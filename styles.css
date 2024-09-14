@@ -4,10 +4,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden; /* Убираем скролл для body */
+    overflow: hidden; /* Убираем лишнюю прокрутку для body */
 }
 
 .container {
@@ -19,9 +16,9 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start; /* Начинаем размещение с верхней части */
     align-items: center;
-    overflow-y: auto; /* Добавляем вертикальную прокрутку для контейнера */
+    overflow-y: auto; /* Добавляем прокрутку для контейнера */
 }
 
 h1, h2, h3 {
@@ -42,13 +39,12 @@ p {
     display: none;
     width: 100%;
     height: 100%;
+    overflow-y: auto; /* Позволяем прокручивать содержимое меню */
+    padding-bottom: 50px; /* Добавляем нижний отступ для пространства под кнопкой */
 }
 
 .menu.active {
     display: block;
-    width: 100%;
-    height: 100%;
-    overflow-y: auto; /* Позволяем меню прокручиваться */
 }
 
 .menu-buttons {
@@ -71,7 +67,8 @@ p {
     max-width: 600px;
     transition: background 0.3s ease;
     text-align: center;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Легкая тень для всех кнопок */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px; /* Добавляем отступ снизу для всех кнопок */
 }
 
 .menu-btn:hover, .details-btn:hover, .buy-btn:hover, .back-btn:hover, .faq-btn:hover {
@@ -86,7 +83,6 @@ p {
     margin-top: 30px;
 }
 
-/* Стиль для раздела "Поддержка", чтобы блок выглядел в едином стиле */
 .admin-contact {
     background-color: #FFEB3B;
     padding: 20px;
@@ -123,7 +119,7 @@ p {
     width: 100%;
     text-align: center;
     border: none;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Легкая тень */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .faq-btn:hover {
