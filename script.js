@@ -27,7 +27,9 @@ function openModal(planId) {
                 <p>Цена: 7 000 руб.</p>
                 <img src="path-to-image1.jpg" alt="Оптимизация моделей для 3D печати" style="width: 100%; margin-bottom: 10px;">
                 <p>Описание: Научитесь оптимизировать 3D модели для печати, разрезать модели на части и исправлять ошибки.</p>
-                <a href="https://t.me/tribute/app?startapp=d9nX" target="_blank" class="buy-btn">Купить</a>
+                <div class="modal-footer">
+                    <a href="https://t.me/tribute/app?startapp=d9nX" target="_blank" class="buy-btn">Купить</a>
+                </div>
             `;
             break;
         case 'plan2':
@@ -36,6 +38,9 @@ function openModal(planId) {
                 <p>Цена: 15 000 руб. (вместе с Планом 3)</p>
                 <img src="path-to-image2.jpg" alt="Поиск и подготовка моделей" style="width: 100%; margin-bottom: 10px;">
                 <p>Описание: Узнайте, где искать модели для 3D печати и как их подготовить для печати.</p>
+                <div class="modal-footer">
+                    <a href="https://t.me/tribute/app?startapp=d9nX" target="_blank" class="buy-btn">Купить</a>
+                </div>
             `;
             break;
         case 'plan3':
@@ -44,6 +49,9 @@ function openModal(planId) {
                 <p>Цена: 15 000 руб. (вместе с Планом 2)</p>
                 <img src="path-to-image3.jpg" alt="Продажа моделей и пассивный доход" style="width: 100%; margin-bottom: 10px;">
                 <p>Описание: Превратите свои навыки в стабильный источник дохода и станьте успешным предпринимателем в сфере 3D печати.</p>
+                <div class="modal-footer">
+                    <a href="https://t.me/tribute/app?startapp=d9nX" target="_blank" class="buy-btn">Купить</a>
+                </div>
             `;
             break;
         case 'plan4':
@@ -52,6 +60,9 @@ function openModal(planId) {
                 <p>Цена: 25 000 руб. (за все 4 плана)</p>
                 <img src="path-to-image4.jpg" alt="Полное сопровождение и развитие бизнеса" style="width: 100%; margin-bottom: 10px;">
                 <p>Описание: Получите всестороннюю поддержку для успешного старта и развития бизнеса в сфере 3D печати.</p>
+                <div class="modal-footer">
+                    <a href="https://t.me/tribute/app?startapp=d9nX" target="_blank" class="buy-btn">Купить</a>
+                </div>
             `;
             break;
         default:
@@ -61,6 +72,7 @@ function openModal(planId) {
     modalBody.innerHTML = content;
     modal.style.display = 'flex';
 }
+
 
 // Функция для закрытия модального окна и показа кнопки "Назад"
 function closeModal() {
