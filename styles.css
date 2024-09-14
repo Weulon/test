@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    max-width: 600px;
+    max-width: 100%;
     margin: 0 auto;
     background-color: #FFFFFF;
     padding: 20px;
@@ -15,11 +15,13 @@ body {
 
 h1, h2, h3 {
     color: #0D47A1;
+    text-align: center;
 }
 
 p {
     color: #333333;
     font-size: 14pt;
+    text-align: center;
 }
 
 .menu {
@@ -36,7 +38,7 @@ p {
     gap: 10px;
 }
 
-.menu-btn, .navigation button, .course-item button, .faq-question {
+.menu-btn, .navigation button, .course-item button, .faq-question, .insert-nick-btn {
     background: linear-gradient(45deg, #FF5722, #FFC107);
     color: #FFFFFF;
     border: none;
@@ -45,124 +47,46 @@ p {
     border-radius: 30px;
     cursor: pointer;
     transition: background 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.menu-btn:hover, .navigation button:hover, .course-item button:hover, .faq-question:hover {
+.menu-btn:hover, .navigation button:hover, .course-item button:hover, .faq-question:hover, .insert-nick-btn:hover {
     background: linear-gradient(45deg, #FFC107, #FF5722);
 }
 
-.course-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.course-item {
-    background-color: #E3F2FD;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.course-item h3 {
-    margin-top: 0;
-}
-
-.contact-list, .contact-list ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.contact-list li {
-    margin-bottom: 10px;
-    font-size: 14pt;
-}
-
-.contact-list a {
-    color: #0D47A1;
-    text-decoration: none;
-}
-
-.contact-list a:hover {
-    text-decoration: underline;
+.menu-btn .material-icons, .navigation button .material-icons {
+    margin-right: 10px;
 }
 
 .form-step {
-    display: none;
+    display: flex;
     flex-direction: column;
     gap: 15px;
+    margin-bottom: 20px;
 }
 
-.form-step.active {
-    display: flex;
-}
-
-.form-step input, .form-step select {
+.form-step input {
     padding: 15px;
     font-size: 14pt;
     border: 1px solid #CCCCCC;
     border-radius: 10px;
 }
 
-.faq-item {
-    margin-bottom: 15px;
+.admin-contact {
+    margin-top: 20px;
+    text-align: center;
 }
 
-.faq-question {
-    background-color: #0D47A1;
-    color: #FFFFFF;
-    padding: 15px;
-    font-size: 14pt;
-    border: none;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
+.admin-contact a {
+    font-size: 18pt;
+    color: #0D47A1;
+    text-decoration: none;
 }
 
-.faq-answer {
-    display: none;
-    background-color: #E3F2FD;
-    padding: 15px;
-    font-size: 14pt;
-    border-radius: 10px;
-    margin-top: 5px;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-    background-color: #FFFFFF;
-    margin: 10% auto;
-    padding: 20px;
-    border: none;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 10px;
-}
-
-.close-button {
-    color: #AAAAAA;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close-button:hover {
-    color: #000000;
+.admin-contact a:hover {
+    text-decoration: underline;
 }
 
 .navigation {
@@ -171,4 +95,43 @@ p {
 
 .navigation button {
     align-self: center;
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 600px) {
+    h1, h2, h3 {
+        font-size: 18pt;
+    }
+
+    p {
+        font-size: 12pt;
+    }
+
+    .menu-btn, .navigation button, .course-item button, .faq-question, .insert-nick-btn {
+        padding: 12px;
+        font-size: 14pt;
+        border-radius: 20px;
+    }
+
+    .form-step input {
+        padding: 10px;
+        font-size: 12pt;
+    }
+
+    .admin-contact a {
+        font-size: 16pt;
+    }
+
+    .container {
+        padding: 15px;
+        box-shadow: none;
+    }
+
+    .menu-buttons, .navigation {
+        gap: 8px;
+    }
+
+    .menu-btn .material-icons, .navigation button .material-icons {
+        margin-right: 5px;
+    }
 }
