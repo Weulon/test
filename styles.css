@@ -1,254 +1,174 @@
 body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F5F5F5;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #3733C9;
-    color: #fff;
 }
 
-.app-container {
-    max-width: 400px;
+.container {
+    max-width: 600px;
     margin: 0 auto;
+    background-color: #FFFFFF;
     padding: 20px;
-    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.header {
+h1, h2, h3 {
+    color: #0D47A1;
+}
+
+p {
+    color: #333333;
+    font-size: 14pt;
+}
+
+.menu {
+    display: none;
+}
+
+.menu.active {
+    display: block;
+}
+
+.menu-buttons, .navigation {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #4B47D4;
-    border-radius: 10px;
-    margin-bottom: 20px;
+    flex-direction: column;
+    gap: 10px;
 }
 
-.close-btn, .menu-btn, .back-btn {
-    background: none;
+.menu-btn, .navigation button, .course-item button, .faq-question {
+    background: linear-gradient(45deg, #FF5722, #FFC107);
+    color: #FFFFFF;
     border: none;
-    color: white;
-    font-size: 18px;
+    padding: 15px;
+    font-size: 16pt;
+    border-radius: 30px;
     cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-.app-title {
-    text-align: center;
+.menu-btn:hover, .navigation button:hover, .course-item button:hover, .faq-question:hover {
+    background: linear-gradient(45deg, #FFC107, #FF5722);
 }
 
-.app-title h1 {
-    margin: 0;
-    font-size: 24px;
-}
-
-.balance-section {
-    background-color: #4B47D4;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-.balance-amount {
+.course-list {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px 0;
-}
-
-.icon {
-    margin-right: 10px;
-    font-size: 24px;
-}
-
-.amount {
-    font-size: 36px;
-    font-weight: bold;
-}
-
-.additional-balances {
-    display: flex;
-    justify-content: center;
+    flex-direction: column;
     gap: 20px;
 }
 
-.referrals-btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #fff;
-    color: #3733C9;
-    border: none;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.mining-section {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-}
-
-.miner-container {
-    display: flex;
-    gap: 10px;
-    justify-content: space-between;
-}
-
-.golt-miner, .drop-pool {
-    background-color: #4B47D4;
+.course-item {
+    background-color: #E3F2FD;
     padding: 20px;
-    border-radius: 10px;
-    width: 48%; /* Установите ширину для блоков */
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.soon-text {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ffffff;
-    text-align: center;
-}
-
-h3 {
+.course-item h3 {
     margin-top: 0;
-    font-size: 18px;
 }
 
-.progress-bar {
-    width: 100%;
-    background-color: #ffffff55;
-    border-radius: 10px;
-    height: 10px;
-    margin: 10px 0;
-    position: relative;
+.contact-list, .contact-list ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.progress {
-    width: 0;
-    height: 100%;
-    background-color: #fff;
-    border-radius: 10px;
-    transition: width 0.5s ease;
-}
-
-.claim-btn, .participate-btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #fff;
-    color: #3733C9;
-    border: none;
-    border-radius: 10px;
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.golt-miner-menu {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center;
-    background-color: #3733C9;
-    color: #fff;
-}
-
-.miner-content {
-    background-color: #4B47D4;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.fill-time, .collected-section {
-    margin-bottom: 20px;
-}
-
-.fill-time p, .collected-section p {
-    margin: 0;
-    font-size: 18px;
-}
-
-.amount-collected {
-    font-size: 36px;
-    font-weight: bold;
-    margin: 10px 0;
-}
-
-.upgrades-section {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #4B47D4;
-    border-radius: 10px;
-}
-
-.current-balance {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+.contact-list li {
     margin-bottom: 10px;
-    font-size: 16px;
-    color: #ffffff;
+    font-size: 14pt;
 }
 
-.balance-label {
-    margin-right: 10px;
-    font-weight: bold;
+.contact-list a {
+    color: #0D47A1;
+    text-decoration: none;
 }
 
-.upgrade-item {
+.contact-list a:hover {
+    text-decoration: underline;
+}
+
+.form-step {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-step.active {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
 }
 
-.upgrade-info {
-    text-align: left;
-}
-
-.upgrade-cost {
-    font-size: 16px;
-    color: #ffffff;
-}
-
-.lvl-up-btn {
-    background-color: #fff;
-    color: #3733C9;
-    border: none;
+.form-step input, .form-step select {
+    padding: 15px;
+    font-size: 14pt;
+    border: 1px solid #CCCCCC;
     border-radius: 10px;
-    padding: 10px;
-    font-size: 16px;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+}
+
+.faq-question {
+    background-color: #0D47A1;
+    color: #FFFFFF;
+    padding: 15px;
+    font-size: 14pt;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.faq-answer {
+    display: none;
+    background-color: #E3F2FD;
+    padding: 15px;
+    font-size: 14pt;
+    border-radius: 10px;
+    margin-top: 5px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #FFFFFF;
+    margin: 10% auto;
+    padding: 20px;
+    border: none;
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.close-button {
+    color: #AAAAAA;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
     cursor: pointer;
 }
 
-.animation-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #4B47D4;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 20px;
-    font-weight: bold;
-    opacity: 0;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-    z-index: 10;
+.close-button:hover {
+    color: #000000;
 }
 
-.show-animation {
-    opacity: 1;
-    transform: translate(-50%, -60%);
+.navigation {
+    margin-top: 20px;
 }
 
-.hide-animation {
-    opacity: 0;
-    transform: translate(-50%, -50%);
+.navigation button {
+    align-self: center;
 }
