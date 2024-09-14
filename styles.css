@@ -1,81 +1,198 @@
-// Функция для переключения между меню
-function showMenu(menuId) {
-    const menus = document.querySelectorAll('.menu');
-    menus.forEach(menu => {
-        if (menu.id === menuId) {
-            menu.classList.add('active');
-        } else {
-            menu.classList.remove('active');
-        }
-    });
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F5F5F5;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden; /* Убираем прокрутку для body */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-// Функция для открытия модального окна с описанием и скрытия кнопки "Назад"
-function openModal(planId) {
-    const modal = document.getElementById('modal');
-    const modalBody = document.getElementById('modal-body');
-    const backButton = document.querySelector('.back-btn'); // Кнопка "Назад"
-    
-    // Скрываем кнопку "Назад"
-    backButton.style.display = 'none';
-    
-    let content = '';
-    switch(planId) {
-        case 'plan1':
-            content = `
-                <h3>План 1: Оптимизация моделей для 3D печати</h3>
-                <p>Цена: 7 000 руб.</p>
-                <img src="path-to-image1.jpg" alt="Оптимизация моделей для 3D печати" style="width: 100%; margin-bottom: 10px;">
-                <p>Описание: Научитесь оптимизировать 3D модели для печати, разрезать модели на части и исправлять ошибки.</p>
-            `;
-            break;
-        case 'plan2':
-            content = `
-                <h3>План 2: Поиск и подготовка моделей</h3>
-                <p>Цена: 15 000 руб. (вместе с Планом 3)</p>
-                <img src="path-to-image2.jpg" alt="Поиск и подготовка моделей" style="width: 100%; margin-bottom: 10px;">
-                <p>Описание: Узнайте, где искать модели для 3D печати и как их подготовить для печати.</p>
-            `;
-            break;
-        case 'plan3':
-            content = `
-                <h3>План 3: Продажа моделей и пассивный доход</h3>
-                <p>Цена: 15 000 руб. (вместе с Планом 2)</p>
-                <img src="path-to-image3.jpg" alt="Продажа моделей и пассивный доход" style="width: 100%; margin-bottom: 10px;">
-                <p>Описание: Превратите свои навыки в стабильный источник дохода и станьте успешным предпринимателем в сфере 3D печати.</p>
-            `;
-            break;
-        case 'plan4':
-            content = `
-                <h3>План 4: Полное сопровождение и развитие бизнеса</h3>
-                <p>Цена: 25 000 руб. (за все 4 плана)</p>
-                <img src="path-to-image4.jpg" alt="Полное сопровождение и развитие бизнеса" style="width: 100%; margin-bottom: 10px;">
-                <p>Описание: Получите всестороннюю поддержку для успешного старта и развития бизнеса в сфере 3D печати.</p>
-            `;
-            break;
-        default:
-            content = `<p>Информация о курсе недоступна.</p>`;
+.container {
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    margin: 0;
+    background-color: #FFFFFF;
+    padding: 5%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto; /* Позволяем прокручивать содержимое */
+}
+
+h1, h2, h3 {
+    color: #0D47A1;
+    text-align: center; /* Центрируем заголовки */
+    font-size: 4vw;
+    margin-bottom: 2vw;
+}
+
+p {
+    color: #333333;
+    font-size: 3vw;
+    text-align: center; /* Центрируем текст */
+    margin-bottom: 4vw;
+}
+
+.menu {
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding-bottom: 40px; /* Дополнительный нижний отступ для прокрутки */
+}
+
+.menu.active {
+    display: block;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 5vw;
+    width: 100%;
+    align-items: center;
+}
+
+.menu-btn, .details-btn, .buy-btn, .back-btn, .faq-btn {
+    background: linear-gradient(45deg, #FF5722, #FFC107);
+    color: #FFFFFF;
+    border: none;
+    padding: 4vw;
+    font-size: 4vw;
+    border-radius: 40px;
+    cursor: pointer;
+    width: 90%;
+    max-width: 600px;
+    transition: background 0.3s ease;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    margin-bottom: 5vw;
+}
+
+.menu-btn:hover, .details-btn:hover, .buy-btn:hover, .faq-btn:hover {
+    background: linear-gradient(45deg, #FFC107, #FF5722);
+}
+
+.details-btn {
+    background: linear-gradient(45deg, #00ACC1, #26C6DA);
+}
+
+.back-btn {
+    background: linear-gradient(45deg, #FF5722, #FFC107);
+    color: #FFFFFF;
+    border: none;
+    padding: 15px;
+    font-size: 22px;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    position: relative; /* Делаем кнопку позиционированной относительно контейнера */
+    bottom: 0; /* Оставляем ее внизу контейнера */
+    margin-top: auto; /* Автоматический отступ сверху */
+}
+
+.admin-contact {
+    background-color: #FFEB3B;
+    padding: 4vw;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 5vw 0;
+}
+
+.admin-contact a {
+    font-size: 4vw;
+    color: #0D47A1;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.admin-contact a:hover {
+    text-decoration: underline;
+}
+
+.faq-item {
+    margin-bottom: 5vw;
+}
+
+.faq-btn {
+    background: linear-gradient(45deg, #FF5722, #FFC107);
+    color: #FFFFFF;
+    padding: 4vw;
+    font-size: 4vw;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    width: 100%;
+    text-align: center;
+    border: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.faq-btn:hover {
+    background: linear-gradient(45deg, #FFC107, #FF5722);
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #FFF;
+    padding: 4vw;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.close-button {
+    float: right;
+    font-size: 5vw;
+    cursor: pointer;
+}
+
+.buy-btn {
+    margin-top: 5vw;
+    font-size: 4vw;
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 600px) {
+    h1, h2, h3 {
+        font-size: 6vw;
     }
-    
-    modalBody.innerHTML = content;
-    modal.style.display = 'flex';
-}
 
-// Функция для закрытия модального окна и показа кнопки "Назад"
-function closeModal() {
-    const modal = document.getElementById('modal');
-    const backButton = document.querySelector('.back-btn');
-    
-    // Показываем кнопку "Назад"
-    backButton.style.display = 'block';
-    
-    modal.style.display = 'none';
-}
-
-// Закрытие модального окна при клике вне его области
-window.onclick = function(event) {
-    const modal = document.getElementById('modal');
-    if (event.target === modal) {
-        closeModal(); // Закрываем модал и показываем кнопку "Назад"
+    p {
+        font-size: 4vw;
     }
-};
+
+    .menu-btn, .details-btn, .buy-btn, .back-btn, .faq-btn {
+        font-size: 4vw;
+        padding: 5vw;
+        width: 95%;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
