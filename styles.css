@@ -142,7 +142,6 @@ p {
     background: linear-gradient(45deg, #FFC107, #FF5722);
 }
 
-/* Стили для модального окна */
 .modal {
     display: none;
     position: fixed;
@@ -160,10 +159,11 @@ p {
     background-color: #FFF;
     padding: 4vw;
     border-radius: 10px;
-    width: 80%;
+    width: 90%;
     max-width: 500px;
-    text-align: center;
-    position: relative;
+    max-height: 90%; /* Ограничиваем высоту модального окна */
+    overflow-y: auto; /* Добавляем вертикальную прокрутку, если контента слишком много */
+    text-align: center; /* Центрируем текст */
 }
 
 .modal-footer {
@@ -206,23 +206,53 @@ p {
     background: linear-gradient(45deg, #FFC107, #FF5722);
 }
 
+h3, h4 {
+    color: #0D47A1;
+    font-size: 5vw;
+    text-align: center;
+    margin-bottom: 3vw;
+}
+
+p, li {
+    color: #333;
+    font-size: 4vw;
+    line-height: 1.5;
+    margin-bottom: 3vw;
+    text-align: left; /* Выравниваем текст по левому краю для удобочитаемости */
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+ul ul {
+    margin-left: 20px; /* Добавляем отступ для вложенных списков */
+}
+
+.modal-content img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
 /* Медиа-запрос для мобильных устройств */
 @media (max-width: 600px) {
-    h1, h2, h3 {
-        font-size: 6vw;
-    }
-
-    p {
-        font-size: 4vw;
-    }
-
-    .menu-btn, .details-btn, .buy-btn, .back-btn, .faq-btn {
-        font-size: 4vw;
-        padding: 5vw;
-        width: 95%;
-    }
-
     .modal-content {
+        width: 90%;
+        height: 90%;
+        overflow-y: auto; /* Прокрутка для мобильных устройств */
+    }
+
+    h3, h4 {
+        font-size: 5vw;
+    }
+
+    p, li {
+        font-size: 4vw;
+    }
+
+    .buy-btn {
         width: 90%;
     }
 }
