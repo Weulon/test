@@ -10,10 +10,14 @@ function showMenu(menuId) {
     });
 }
 
-// Функция для открытия модального окна с описанием
+// Функция для открытия модального окна с описанием и скрытия кнопки "Назад"
 function openModal(planId) {
     const modal = document.getElementById('modal');
     const modalBody = document.getElementById('modal-body');
+    const backButton = document.querySelector('.back-btn'); // Кнопка "Назад"
+    
+    // Скрываем кнопку "Назад"
+    backButton.style.display = 'none';
     
     let content = '';
     switch(planId) {
@@ -57,31 +61,21 @@ function openModal(planId) {
     modal.style.display = 'flex';
 }
 
-// Функция для закрытия модального окна
+// Функция для закрытия модального окна и показа кнопки "Назад"
 function closeModal() {
     const modal = document.getElementById('modal');
+    const backButton = document.querySelector('.back-btn');
+    
+    // Показываем кнопку "Назад"
+    backButton.style.display = 'block';
+    
     modal.style.display = 'none';
-}
-
-// Функция для открытия ссылки на покупку
-function openPurchaseLink() {
-    window.open('https://example.com/purchase', '_blank'); // Замените ссылку на вашу
-}
-
-// Функция для переключения часто задаваемых вопросов
-function toggleFaq(faqId) {
-    const answer = document.getElementById(`faq-answer-${faqId}`);
-    if (answer.style.display === 'block') {
-        answer.style.display = 'none';
-    } else {
-        answer.style.display = 'block';
-    }
 }
 
 // Закрытие модального окна при клике вне его области
 window.onclick = function(event) {
     const modal = document.getElementById('modal');
     if (event.target === modal) {
-        modal.style.display = 'none';
+        closeModal(); // Закрываем модал и показываем кнопку "Назад"
     }
 };
