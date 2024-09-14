@@ -79,7 +79,7 @@ function closeModal() {
     const modal = document.getElementById('modal');
     const backButton = document.querySelector('.back-btn');
     
-    // Показываем кнопку "Назад"
+    // Показывем кнопку "Назад"
     backButton.style.display = 'block';
     
     modal.style.display = 'none';
