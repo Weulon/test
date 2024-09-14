@@ -7,6 +7,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden; /* Убираем скролл для body */
 }
 
 .container {
@@ -20,6 +21,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow-y: auto; /* Добавляем вертикальную прокрутку для контейнера */
 }
 
 h1, h2, h3 {
@@ -39,11 +41,14 @@ p {
 .menu {
     display: none;
     width: 100%;
+    height: 100%;
 }
 
 .menu.active {
     display: block;
     width: 100%;
+    height: 100%;
+    overflow-y: auto; /* Позволяем меню прокручиваться */
 }
 
 .menu-buttons {
