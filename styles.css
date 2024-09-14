@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    overflow: hidden; /* Убираем прокрутку для body */
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,12 +22,12 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    overflow-y: auto; /* Позволяем прокручивать содержимое */
+    overflow-y: auto;
 }
 
 h1, h2, h3 {
     color: #0D47A1;
-    text-align: center; /* Центрируем заголовки */
+    text-align: center;
     font-size: 4vw;
     margin-bottom: 2vw;
 }
@@ -35,7 +35,7 @@ h1, h2, h3 {
 p {
     color: #333333;
     font-size: 3vw;
-    text-align: center; /* Центрируем текст */
+    text-align: center;
     margin-bottom: 4vw;
 }
 
@@ -44,7 +44,7 @@ p {
     width: 100%;
     height: 100%;
     overflow-y: auto;
-    padding-bottom: 40px; /* Дополнительный нижний отступ для прокрутки */
+    padding-bottom: 40px;
 }
 
 .menu.active {
@@ -95,9 +95,9 @@ p {
     max-width: 600px;
     text-align: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    position: relative; /* Делаем кнопку позиционированной относительно контейнера */
-    bottom: 0; /* Оставляем ее внизу контейнера */
-    margin-top: auto; /* Автоматический отступ сверху */
+    position: relative;
+    bottom: 0;
+    margin-top: auto;
 }
 
 .admin-contact {
@@ -142,7 +142,7 @@ p {
     background: linear-gradient(45deg, #FFC107, #FF5722);
 }
 
-/* Модальное окно */
+/* Стили для модального окна */
 .modal {
     display: none;
     position: fixed;
@@ -163,6 +163,11 @@ p {
     width: 80%;
     max-width: 500px;
     text-align: center;
+    position: relative;
+}
+
+.modal-footer {
+    margin-top: 20px;
 }
 
 .close-button {
@@ -172,8 +177,20 @@ p {
 }
 
 .buy-btn {
-    margin-top: 5vw;
-    font-size: 4vw;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background: linear-gradient(45deg, #FF5722, #FFC107);
+    text-align: center;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    margin-top: 20px;
+}
+
+.buy-btn:hover {
+    background: linear-gradient(45deg, #FFC107, #FF5722);
 }
 
 /* Медиа-запрос для мобильных устройств */
