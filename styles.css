@@ -13,7 +13,7 @@ body {
 .container {
     width: 100%;
     max-width: 100%;
-    min-height: 100vh; /* Добавляем минимальную высоту */
+    height: 100vh;
     margin: 0;
     background-color: #FFFFFF;
     padding: 5%;
@@ -42,7 +42,7 @@ p {
 .menu {
     display: none;
     width: 100%;
-    min-height: 100%; /* Гарантируем минимальную высоту меню */
+    height: 100%;
     overflow-y: auto;
     padding-bottom: 60px; /* Увеличиваем нижний отступ для кнопки */
 }
@@ -59,7 +59,7 @@ p {
     align-items: center;
 }
 
-.menu-btn, .details-btn, .buy-btn, .faq-btn {
+.menu-btn, .details-btn, .buy-btn, .back-btn, .faq-btn {
     background: linear-gradient(45deg, #FF5722, #FFC107);
     color: #FFFFFF;
     border: none;
@@ -83,7 +83,6 @@ p {
     background: linear-gradient(45deg, #00ACC1, #26C6DA);
 }
 
-/* Изменение для кнопки "Назад" */
 .back-btn {
     background: linear-gradient(45deg, #FF5722, #FFC107);
     color: #FFFFFF;
@@ -96,9 +95,8 @@ p {
     max-width: 600px;
     text-align: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    position: sticky; /* Добавляем липкое позиционирование */
-    bottom: 20px; /* Фиксируем на расстоянии 20px от низа экрана */
-    margin-top: auto;
+    margin-top: auto; /* Оставляем пространство сверху */
+    margin-bottom: 20px; /* Увеличиваем отступ снизу для кнопки "Назад" */
 }
 
 .admin-contact {
