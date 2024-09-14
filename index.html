@@ -1,114 +1,185 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LumCity Mini App</title>
+    <title>Курсы по 3D моделированию и печати</title>
+    <!-- Подключение шрифтов и стилей -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Подключение иконок Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Подключение шрифта Roboto -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="app-container" id="main-menu">
-        <div class="header">
-            <button class="close-btn">Закрыть</button>
-            <div class="app-title">
-                <h1>LumCity</h1>
-                <span>мини-приложение</span>
+    <div class="container">
+        <!-- Главное меню -->
+        <div id="main-menu" class="menu active">
+            <h1>Добро пожаловать!</h1>
+            <p>Выберите интересующий вас раздел:</p>
+            <div class="menu-buttons">
+                <button class="menu-btn" onclick="showMenu('courses')">
+                    <span class="material-icons">book</span>
+                    Курсы
+                </button>
+                <button class="menu-btn" onclick="showMenu('enroll')">
+                    <span class="material-icons">edit_note</span>
+                    Записаться
+                </button>
+                <button class="menu-btn" onclick="showMenu('support')">
+                    <span class="material-icons">support_agent</span>
+                    Поддержка
+                </button>
+                <button class="menu-btn" onclick="showMenu('faq')">
+                    <span class="material-icons">help_outline</span>
+                    FAQ
+                </button>
             </div>
-            <button class="menu-btn">•••</button>
         </div>
-        <div class="balance-section">
-            <h2>Total Balance</h2>
-            <div class="balance-amount">
-                <div class="icon">💧</div>
-                <span class="amount" id="total-balance">0.00000</span>
-            </div>
-            <div class="additional-balances">
-                <div class="balance-item">⚪ <span id="additional-balance-1">0.00000</span></div>
-                <div class="balance-item">💎 <span id="additional-balance-2">0</span></div>
-            </div>
-        </div>
-        <button class="referrals-btn">Referrals</button>
-        
-        <!-- Main mining section with GOLT Miner and DROP Pool -->
-        <div class="mining-section">
-            <div class="miner-container">
-                <!-- GOLT Miner Block -->
-                <div class="golt-miner">
-                    <h3>GOLT Miner</h3>
-                    <div class="progress-bar">
-                        <div class="progress" id="progress-bar"></div>
-                    </div>
-                    <div class="collected">Collected: <span id="collected-amount">0.00240</span></div>
-                    <button class="claim-btn" id="claim-main">Claim</button> <!-- Сохраняем исходный функционал блока Claim -->
-                </div>
 
-                <!-- DROP Pool Block -->
-                <div class="drop-pool">
-                    <h3>DROP Pool</h3>
-                    <div class="pool-info">
-                        <div>🕒 <span id="drop-timer">18:41:24</span></div>
-                        <div>Your portion: <span id="drop-portion">0.000000%</span></div>
-                    </div>
-                    <button class="participate-btn" id="participate-btn">Participate</button>
+        <!-- Раздел "Курсы" -->
+        <div id="courses" class="menu">
+            <h2>📚 Курсы</h2>
+            <div class="course-list">
+                <!-- Курс 1 -->
+                <div class="course-item">
+                    <h3>План 1: Оптимизация моделей для 3D печати</h3>
+                    <p><strong>Цена:</strong> 7 000 руб.</p>
+                    <p>Погрузитесь в профессиональные техники подготовки 3D моделей для идеальной печати.</p>
+                    <button onclick="showCourseDetails(1)">Подробнее</button>
                 </div>
+                <!-- Курс 2 -->
+                <div class="course-item">
+                    <h3>План 2: Поиск и подготовка моделей</h3>
+                    <p><strong>Цена:</strong> 15 000 руб. (вместе с Планом 3)</p>
+                    <p>Раскройте богатство доступных 3D моделей и научитесь эффективно их использовать.</p>
+                    <button onclick="showCourseDetails(2)">Подробнее</button>
+                </div>
+                <!-- Курс 3 -->
+                <div class="course-item">
+                    <h3>План 3: Продажа моделей и пассивный доход</h3>
+                    <p><strong>Цена:</strong> 15 000 руб. (вместе с Планом 2)</p>
+                    <p>Превратите свои навыки в стабильный источник дохода и станьте успешным предпринимателем в сфере 3D печати.</p>
+                    <button onclick="showCourseDetails(3)">Подробнее</button>
+                </div>
+                <!-- Курс 4 -->
+                <div class="course-item">
+                    <h3>План 4: Полное сопровождение и развитие бизнеса</h3>
+                    <p><strong>Цена:</strong> 25 000 руб. (за все 4 плана)</p>
+                    <p>Получите всестороннюю поддержку и необходимые инструменты для быстрого старта и успешного развития вашего бизнеса в сфере 3D печати.</p>
+                    <button onclick="showCourseDetails(4)">Подробнее</button>
+                </div>
+            </div>
+            <div class="navigation">
+                <button onclick="showMenu('main-menu')">Назад</button>
+            </div>
+        </div>
+
+        <!-- Модальное окно с описанием курса -->
+        <div id="course-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeModal()">&times;</span>
+                <div id="course-details"></div>
+                <button onclick="closeModal()">Закрыть</button>
+            </div>
+        </div>
+
+        <!-- Раздел "Записаться" -->
+        <div id="enroll" class="menu">
+            <h2>📝 Записаться на курс</h2>
+            <form id="enroll-form">
+                <!-- Шаг 1: Выбор курса -->
+                <div id="step-1" class="form-step active">
+                    <p>Выберите курс:</p>
+                    <select id="course-select" required>
+                        <option value="">-- Выберите курс --</option>
+                        <option value="1">План 1: Оптимизация моделей для 3D печати</option>
+                        <option value="2">План 2 и 3: Поиск моделей и пассивный доход</option>
+                        <option value="4">План 4: Полное сопровождение и развитие бизнеса</option>
+                    </select>
+                    <div class="navigation">
+                        <button type="button" onclick="nextStep(1)">Далее</button>
+                        <button type="button" onclick="showMenu('main-menu')">Назад</button>
+                    </div>
+                </div>
+                <!-- Шаг 2: Персональные данные -->
+                <div id="step-2" class="form-step">
+                    <p>Введите ваши данные:</p>
+                    <input type="text" id="fullname" placeholder="Имя и фамилия" required>
+                    <input type="tel" id="phone" placeholder="Контактный номер телефона" required>
+                    <input type="email" id="email" placeholder="Электронная почта" required>
+                    <div class="navigation">
+                        <button type="button" onclick="prevStep(2)">Назад</button>
+                        <button type="button" onclick="nextStep(2)">Далее</button>
+                    </div>
+                </div>
+                <!-- Шаг 3: Оплата -->
+                <div id="step-3" class="form-step">
+                    <p>Выберите способ оплаты:</p>
+                    <select id="payment-method" required>
+                        <option value="">-- Выберите способ оплаты --</option>
+                        <option value="card">Банковская карта</option>
+                        <option value="wallet">Электронный кошелек</option>
+                        <option value="fastpay">Система быстрых платежей</option>
+                    </select>
+                    <div class="navigation">
+                        <button type="button" onclick="prevStep(3)">Назад</button>
+                        <button type="button" onclick="nextStep(3)">Далее</button>
+                    </div>
+                </div>
+                <!-- Шаг 4: Подтверждение -->
+                <div id="step-4" class="form-step">
+                    <p>Спасибо за регистрацию! На вашу почту отправлена инструкция по оплате.</p>
+                    <div class="navigation">
+                        <button type="button" onclick="showMenu('main-menu')">На главную</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Раздел "Поддержка" -->
+        <div id="support" class="menu">
+            <h2>💬 Поддержка</h2>
+            <p>Свяжитесь с нами удобным для вас способом:</p>
+            <ul class="contact-list">
+                <li>📞 Телефон: +7 (123) 456-78-90</li>
+                <li>✉️ Email: support@example.com</li>
+                <li>🌐 Социальные сети:
+                    <ul>
+                        <li><a href="#">Telegram</a></li>
+                        <li><a href="#">VK</a></li>
+                        <li><a href="#">Facebook</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="navigation">
+                <button onclick="showMenu('main-menu')">Назад</button>
+            </div>
+        </div>
+
+        <!-- Раздел "FAQ" -->
+        <div id="faq" class="menu">
+            <h2>❓ Часто задаваемые вопросы</h2>
+            <!-- Добавьте вопросы и ответы -->
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(1)">Как проходит обучение?</button>
+                <div id="faq-answer-1" class="faq-answer">
+                    <p>Обучение проходит в формате онлайн-лекций и практических занятий с доступом к материалам 24/7.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(2)">Как можно оплатить курс?</button>
+                <div id="faq-answer-2" class="faq-answer">
+                    <p>Вы можете оплатить курс банковской картой, электронным кошельком или через систему быстрых платежей.</p>
+                </div>
+            </div>
+            <!-- Добавьте больше вопросов по аналогии -->
+            <div class="navigation">
+                <button onclick="showMenu('main-menu')">Назад</button>
             </div>
         </div>
     </div>
 
-    <!-- New GOLT Miner Menu -->
-    <div class="golt-miner-menu" id="golt-miner-menu" style="display: none;">
-        <div class="header">
-            <button class="back-btn" id="back-btn">←</button>
-            <div class="app-title">
-                <h1>GOLT Miner</h1>
-            </div>
-        </div>
-        <div class="miner-content">
-            <div class="collected-section">
-                <p>⚪ Collected</p>
-                <div class="amount-collected" id="mining-amount">0.00240</div>
-                <div class="progress-bar">
-                    <div class="progress" id="progress-bar-animation"></div>
-                </div>
-            </div>
-            <button class="claim-btn" id="claim-golt">Claim</button>
-            <div class="animation-text" id="claim-animation" style="display: none;">Coins Claimed!</div>
-        </div>
-
-        <!-- Upgrades Section -->
-        <div class="upgrades-section">
-            <h3>Upgrades</h3>
-            <div class="current-balance">
-                <span class="balance-label">Мой баланс:</span> ⚪ <span id="current-balance">0.00000</span>
-            </div>
-            <div class="upgrade-item">
-                <div class="upgrade-info">
-                    <div class="upgrade-level">Pickaxe / <span id="current-level">1</span> LVL</div>
-                    <div class="earnings-rate">+ <span id="earnings-per-hour">0.0026</span> / hr</div>
-                </div>
-                <div class="upgrade-cost">
-                    <span id="upgrade-cost">0.0012</span> ⚪
-                </div>
-                <button class="lvl-up-btn" id="lvl-up-btn">Lvl Up</button>
-                <div class="animation-text" id="levelup-animation" style="display: none;">Level Up!</div>
-            </div>
-
-            <!-- Storage Upgrade -->
-            <div class="upgrade-item">
-                <div class="upgrade-info">
-                    <div class="upgrade-level">Storage / <span id="storage-level">1</span> LVL</div>
-                    <div class="storage-capacity">max <span id="max-storage-hours">1</span> hours</div>
-                </div>
-                <div class="upgrade-cost">
-                    <span id="storage-upgrade-cost">0.0012</span> ⚪
-                </div>
-                <button class="lvl-up-btn" id="storage-upgrade-btn">Lvl Up</button>
-                <div class="animation-text" id="storage-animation" style="display: none;">Storage Upgraded!</div>
-            </div>
-        </div>
-    </div>
-
+    <!-- Подключение JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
