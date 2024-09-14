@@ -157,27 +157,28 @@ p {
 
 .modal-content {
     background-color: #FFF;
-    padding: 4vw;
+    padding: 20px;
     border-radius: 10px;
-    width: 90%;
+    width: 80%;
     max-width: 500px;
-    max-height: 90%; /* Ограничиваем высоту модального окна */
-    overflow-y: auto; /* Добавляем вертикальную прокрутку, если контента слишком много */
-    text-align: center; /* Центрируем текст */
+    position: relative;
+    text-align: center;
+    overflow-y: auto;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .modal-footer {
     margin-top: 20px;
-}
-
-.close-button {
-    float: right;
-    font-size: 5vw;
-    cursor: pointer;
+    position: relative; /* Убираем sticky */
+    padding: 10px 0;
+    background-color: transparent; /* Убираем фон */
 }
 
 .buy-btn {
-    display: block;
+    display: inline-block;
     padding: 10px 20px;
     font-size: 16px;
     color: #fff;
@@ -186,25 +187,15 @@ p {
     border-radius: 30px;
     text-decoration: none;
     transition: background 0.3s ease;
-    margin: 20px auto; /* Центрируем кнопку */
-    max-width: 300px; /* Устанавливаем максимальную ширину для больших экранов */
-    width: 90%; /* Кнопка занимает 90% ширины экрана для мобильных устройств */
-    box-sizing: border-box; /* Учитываем внутренние отступы при расчете ширины */
+    margin-top: 20px;
+    width: 100%; /* Ширина кнопки */
+    max-width: 300px; /* Ограничение максимальной ширины */
 }
-
-/* Медиа-запрос для мобильных устройств */
-@media (max-width: 600px) {
-    .buy-btn {
-        width: 100%; /* На мобильных устройствах кнопка занимает всю ширину */
-        max-width: none; /* Убираем ограничение на максимальную ширину */
-    }
-}
-
-
 
 .buy-btn:hover {
     background: linear-gradient(45deg, #FFC107, #FF5722);
 }
+
 
 h3, h4 {
     color: #0D47A1;
