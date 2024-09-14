@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Подключение шрифта Roboto -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
+    <!-- Подключение Telegram Web Apps SDK -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
 </head>
 <body>
     <div class="container">
@@ -74,64 +76,27 @@
             </div>
         </div>
 
-        <!-- Модальное окно с описанием курса -->
-        <div id="course-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-button" onclick="closeModal()">&times;</span>
-                <div id="course-details"></div>
-                <button onclick="closeModal()">Закрыть</button>
-            </div>
-        </div>
+        
 
         <!-- Раздел "Записаться" -->
         <div id="enroll" class="menu">
             <h2>📝 Записаться на курс</h2>
             <form id="enroll-form">
-                <!-- Шаг 1: Выбор курса -->
-                <div id="step-1" class="form-step active">
-                    <p>Выберите курс:</p>
-                    <select id="course-select" required>
-                        <option value="">-- Выберите курс --</option>
-                        <option value="1">План 1: Оптимизация моделей для 3D печати</option>
-                        <option value="2">План 2 и 3: Поиск моделей и пассивный доход</option>
-                        <option value="4">План 4: Полное сопровождение и развитие бизнеса</option>
-                    </select>
-                    <div class="navigation">
-                        <button type="button" onclick="nextStep(1)">Далее</button>
-                        <button type="button" onclick="showMenu('main-menu')">Назад</button>
-                    </div>
-                </div>
-                <!-- Шаг 2: Персональные данные -->
-                <div id="step-2" class="form-step">
+                <!-- Поле "Имя и фамилия" -->
+                <div class="form-step active">
                     <p>Введите ваши данные:</p>
                     <input type="text" id="fullname" placeholder="Имя и фамилия" required>
-                    <input type="tel" id="phone" placeholder="Контактный номер телефона" required>
-                    <input type="email" id="email" placeholder="Электронная почта" required>
-                    <div class="navigation">
-                        <button type="button" onclick="prevStep(2)">Назад</button>
-                        <button type="button" onclick="nextStep(2)">Далее</button>
-                    </div>
                 </div>
-                <!-- Шаг 3: Оплата -->
-                <div id="step-3" class="form-step">
-                    <p>Выберите способ оплаты:</p>
-                    <select id="payment-method" required>
-                        <option value="">-- Выберите способ оплаты --</option>
-                        <option value="card">Банковская карта</option>
-                        <option value="wallet">Электронный кошелек</option>
-                        <option value="fastpay">Система быстрых платежей</option>
-                    </select>
-                    <div class="navigation">
-                        <button type="button" onclick="prevStep(3)">Назад</button>
-                        <button type="button" onclick="nextStep(3)">Далее</button>
-                    </div>
+                <!-- Поле "Мой Telegram @nickname" -->
+                <div class="form-step">
+                    <p>Ваш Telegram @никнейм:</p>
+                    <input type="text" id="telegram-nickname" placeholder="@nickname" required>
+                    <button type="button" class="insert-nick-btn" onclick="insertTelegramUsername()">Вставить мой ник</button>
                 </div>
-                <!-- Шаг 4: Подтверждение -->
-                <div id="step-4" class="form-step">
-                    <p>Спасибо за регистрацию! На вашу почту отправлена инструкция по оплате.</p>
-                    <div class="navigation">
-                        <button type="button" onclick="showMenu('main-menu')">На главную</button>
-                    </div>
+                <!-- Кнопки навигации -->
+                <div class="navigation">
+                    <button type="button" onclick="submitForm()">Отправить заявку</button>
+                    <button type="button" onclick="showMenu('main-menu')">Назад</button>
                 </div>
             </form>
         </div>
@@ -139,18 +104,10 @@
         <!-- Раздел "Поддержка" -->
         <div id="support" class="menu">
             <h2>💬 Поддержка</h2>
-            <p>Свяжитесь с нами удобным для вас способом:</p>
-            <ul class="contact-list">
-                <li>📞 Телефон: +7 (123) 456-78-90</li>
-                <li>✉️ Email: support@example.com</li>
-                <li>🌐 Социальные сети:
-                    <ul>
-                        <li><a href="#">Telegram</a></li>
-                        <li><a href="#">VK</a></li>
-                        <li><a href="#">Facebook</a></li>
-                    </ul>
-                </li>
-            </ul>
+            <p>Если у вас возникли вопросы или нужна помощь, вы можете обратиться к администратору:</p>
+            <div class="admin-contact">
+                <a href="https://t.me/dikayl" target="_blank">@dikayl</a>
+            </div>
             <div class="navigation">
                 <button onclick="showMenu('main-menu')">Назад</button>
             </div>
