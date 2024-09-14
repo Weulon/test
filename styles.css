@@ -4,7 +4,7 @@ body {
     margin: 0;
     padding: 0;
     height: 100vh;
-    overflow: hidden;
+    overflow: hidden; /* Убираем прокрутку для body */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,7 +22,7 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    overflow-y: auto;
+    overflow-y: auto; /* Позволяем прокручивать содержимое */
 }
 
 h1, h2, h3 {
@@ -44,7 +44,7 @@ p {
     width: 100%;
     height: 100%;
     overflow-y: auto;
-    padding-bottom: 10vw;
+    padding-bottom: 10vw; /* Оставляем отступ для кнопки внизу */
 }
 
 .menu.active {
@@ -59,7 +59,7 @@ p {
     align-items: center;
 }
 
-.menu-btn, .details-btn, .buy-btn, .faq-btn {
+.menu-btn, .details-btn, .buy-btn, .back-btn, .faq-btn {
     background: linear-gradient(45deg, #FF5722, #FFC107);
     color: #FFFFFF;
     border: none;
@@ -83,7 +83,6 @@ p {
     background: linear-gradient(45deg, #00ACC1, #26C6DA);
 }
 
-/* Исправляем кнопку "Назад" */
 .back-btn {
     background: linear-gradient(45deg, #FF5722, #FFC107);
     color: #FFFFFF;
@@ -96,11 +95,9 @@ p {
     max-width: 600px;
     text-align: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    position: fixed; /* Фиксируем кнопку "Назад" */
-    bottom: 20px; /* Располагаем ее внизу */
-    left: 50%;
-    transform: translateX(-50%); /* Центрируем по горизонтали */
-    z-index: 1000; /* Делаем кнопку поверх других элементов */
+    position: relative; /* Делаем кнопку позиционированной относительно контейнера */
+    bottom: 0; /* Оставляем ее внизу контейнера */
+    margin-top: auto; /* Автоматический отступ сверху */
 }
 
 .admin-contact {
