@@ -14,26 +14,28 @@ body {
     max-width: 100%;
     margin: 0;
     background-color: #FFFFFF;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px; /* Увеличили padding */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Сделаем тень более заметной */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100%;
+    border-radius: 20px; /* Слегка закруглим углы для лучшего вида */
 }
 
 h1, h2, h3 {
     color: #0D47A1;
     text-align: center;
-    font-size: 20px;
+    font-size: 28px; /* Увеличим размер заголовков */
+    margin-bottom: 20px;
 }
 
 p {
     color: #333333;
-    font-size: 16px;
+    font-size: 18px; /* Увеличим размер текста */
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px; /* Сделаем отступы больше */
 }
 
 .menu {
@@ -49,7 +51,7 @@ p {
 .menu-buttons, .navigation {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px; /* Увеличим расстояние между кнопками */
     width: 100%;
     align-items: center;
 }
@@ -58,48 +60,50 @@ p {
     background: linear-gradient(45deg, #FF5722, #FFC107);
     color: #FFFFFF;
     border: none;
-    padding: 15px;
-    font-size: 18px;
-    border-radius: 30px;
+    padding: 25px; /* Увеличим высоту кнопок */
+    font-size: 20px; /* Сделаем текст крупнее */
+    border-radius: 40px; /* Закруглим углы кнопок для плавности */
     cursor: pointer;
-    width: 80%;
-    max-width: 400px; /* Для лучшего отображения на десктопе */
-    transition: background 0.3s ease;
+    width: 100%; /* Кнопки теперь занимают всю ширину экрана */
+    max-width: 600px; /* Максимальная ширина для больших экранов */
+    transition: background 0.3s ease, transform 0.2s ease; /* Добавим легкую анимацию */
+    text-align: center;
 }
 
 .menu-btn:hover, .navigation button:hover {
     background: linear-gradient(45deg, #FFC107, #FF5722);
+    transform: scale(1.05); /* Легкое увеличение кнопки при наведении */
 }
 
 .menu-btn .material-icons {
-    margin-right: 10px;
+    margin-right: 15px; /* Увеличим отступ у иконок */
 }
 
 .form-step {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    margin-bottom: 20px;
+    gap: 25px; /* Больше воздуха между полями формы */
+    margin-bottom: 30px;
     width: 100%;
     align-items: center;
 }
 
 .form-step input {
-    padding: 15px;
-    font-size: 16px;
+    padding: 20px; /* Увеличим высоту полей формы */
+    font-size: 18px; /* Увеличим размер текста внутри полей */
     border: 1px solid #CCCCCC;
     border-radius: 10px;
-    width: 80%;
-    max-width: 400px;
+    width: 100%;
+    max-width: 600px; /* Максимальная ширина для полей ввода */
 }
 
 .admin-contact {
-    margin-top: 20px;
+    margin-top: 30px; /* Увеличим отступ сверху */
     text-align: center;
 }
 
 .admin-contact a {
-    font-size: 18px;
+    font-size: 22px; /* Увеличим размер ссылки */
     color: #0D47A1;
     text-decoration: none;
 }
@@ -109,38 +113,40 @@ p {
 }
 
 .navigation {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .navigation button {
-    width: 80%;
-    max-width: 400px;
-    font-size: 18px;
-    padding: 15px;
-    border-radius: 30px;
+    width: 100%; /* Кнопки на всю ширину */
+    max-width: 600px; /* Максимальная ширина для больших экранов */
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 40px;
 }
 
 /* Медиа-запрос для мобильных устройств */
 @media (max-width: 600px) {
     h1, h2, h3 {
-        font-size: 22px;
+        font-size: 24px;
     }
 
     p {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .menu-btn, .navigation button {
-        font-size: 16px;
-        padding: 12px;
-        width: 90%;
-        max-width: none;
+        font-size: 18px;
+        padding: 22px;
+        width: 100%;
     }
 
     .form-step input {
-        font-size: 14px;
-        padding: 12px;
-        width: 90%;
-        max-width: none;
+        font-size: 16px;
+        padding: 18px;
+        width: 100%;
+    }
+
+    .admin-contact a {
+        font-size: 20px;
     }
 }
