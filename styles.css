@@ -3,75 +3,94 @@ body {
     background-color: #F5F5F5;
     margin: 0;
     padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
+    width: 100%;
     max-width: 100%;
-    margin: 0 auto;
+    margin: 0;
     background-color: #FFFFFF;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 }
 
 h1, h2, h3 {
     color: #0D47A1;
     text-align: center;
+    font-size: 20px;
 }
 
 p {
     color: #333333;
-    font-size: 14pt;
+    font-size: 16px;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .menu {
     display: none;
+    width: 100%;
 }
 
 .menu.active {
     display: block;
+    width: 100%;
 }
 
 .menu-buttons, .navigation {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+    width: 100%;
+    align-items: center;
 }
 
-.menu-btn, .navigation button, .course-item button, .faq-question, .insert-nick-btn {
+.menu-btn, .navigation button {
     background: linear-gradient(45deg, #FF5722, #FFC107);
     color: #FFFFFF;
     border: none;
     padding: 15px;
-    font-size: 16pt;
+    font-size: 18px;
     border-radius: 30px;
     cursor: pointer;
+    width: 80%;
+    max-width: 400px; /* Для лучшего отображения на десктопе */
     transition: background 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.menu-btn:hover, .navigation button:hover, .course-item button:hover, .faq-question:hover, .insert-nick-btn:hover {
+.menu-btn:hover, .navigation button:hover {
     background: linear-gradient(45deg, #FFC107, #FF5722);
 }
 
-.menu-btn .material-icons, .navigation button .material-icons {
+.menu-btn .material-icons {
     margin-right: 10px;
 }
 
 .form-step {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
     margin-bottom: 20px;
+    width: 100%;
+    align-items: center;
 }
 
 .form-step input {
     padding: 15px;
-    font-size: 14pt;
+    font-size: 16px;
     border: 1px solid #CCCCCC;
     border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
 }
 
 .admin-contact {
@@ -80,7 +99,7 @@ p {
 }
 
 .admin-contact a {
-    font-size: 18pt;
+    font-size: 18px;
     color: #0D47A1;
     text-decoration: none;
 }
@@ -94,44 +113,34 @@ p {
 }
 
 .navigation button {
-    align-self: center;
+    width: 80%;
+    max-width: 400px;
+    font-size: 18px;
+    padding: 15px;
+    border-radius: 30px;
 }
 
 /* Медиа-запрос для мобильных устройств */
 @media (max-width: 600px) {
     h1, h2, h3 {
-        font-size: 18pt;
+        font-size: 22px;
     }
 
     p {
-        font-size: 12pt;
+        font-size: 16px;
     }
 
-    .menu-btn, .navigation button, .course-item button, .faq-question, .insert-nick-btn {
+    .menu-btn, .navigation button {
+        font-size: 16px;
         padding: 12px;
-        font-size: 14pt;
-        border-radius: 20px;
+        width: 90%;
+        max-width: none;
     }
 
     .form-step input {
-        padding: 10px;
-        font-size: 12pt;
-    }
-
-    .admin-contact a {
-        font-size: 16pt;
-    }
-
-    .container {
-        padding: 15px;
-        box-shadow: none;
-    }
-
-    .menu-buttons, .navigation {
-        gap: 8px;
-    }
-
-    .menu-btn .material-icons, .navigation button .material-icons {
-        margin-right: 5px;
+        font-size: 14px;
+        padding: 12px;
+        width: 90%;
+        max-width: none;
     }
 }
