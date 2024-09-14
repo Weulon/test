@@ -5,42 +5,46 @@ body {
     padding: 0;
     height: 100vh;
     overflow: hidden; /* Убираем лишнюю прокрутку для body */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container {
     width: 100%;
+    max-width: 100%;
     height: 100vh;
     margin: 0;
     background-color: #FFFFFF;
-    padding: 20px;
+    padding: 5%; /* Используем процентные отступы */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* Начинаем размещение с верхней части */
+    justify-content: flex-start; /* Выравнивание содержимого сверху */
     align-items: center;
-    overflow-y: auto; /* Добавляем прокрутку для контейнера */
+    overflow-y: auto; /* Добавляем вертикальную прокрутку */
 }
 
 h1, h2, h3 {
     color: #0D47A1;
     text-align: center;
-    font-size: 28px;
-    margin-bottom: 15px;
+    font-size: 4vw; /* Относительные единицы для заголовков */
+    margin-bottom: 2vw;
 }
 
 p {
     color: #333333;
-    font-size: 18px;
+    font-size: 3vw; /* Относительные единицы для текста */
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 4vw;
 }
 
 .menu {
     display: none;
     width: 100%;
     height: 100%;
-    overflow-y: auto; /* Позволяем прокручивать содержимое меню */
-    padding-bottom: 50px; /* Добавляем нижний отступ для пространства под кнопкой */
+    overflow-y: auto;
+    padding-bottom: 10vw; /* Нижний отступ для кнопок */
 }
 
 .menu.active {
@@ -50,7 +54,7 @@ p {
 .menu-buttons {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 5vw; /* Используем относительные отступы */
     width: 100%;
     align-items: center;
 }
@@ -59,8 +63,8 @@ p {
     background: linear-gradient(45deg, #FF5722, #FFC107);
     color: #FFFFFF;
     border: none;
-    padding: 25px;
-    font-size: 22px;
+    padding: 4vw; /* Используем относительные единицы для размера кнопок */
+    font-size: 4vw;
     border-radius: 40px;
     cursor: pointer;
     width: 90%;
@@ -68,7 +72,7 @@ p {
     transition: background 0.3s ease;
     text-align: center;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px; /* Добавляем отступ снизу для всех кнопок */
+    margin-bottom: 5vw; /* Отступ снизу для каждой кнопки */
 }
 
 .menu-btn:hover, .details-btn:hover, .buy-btn:hover, .back-btn:hover, .faq-btn:hover {
@@ -80,20 +84,20 @@ p {
 }
 
 .back-btn {
-    margin-top: 30px;
+    margin-top: 10vw; /* Увеличиваем отступ сверху для кнопки "Назад" */
 }
 
 .admin-contact {
     background-color: #FFEB3B;
-    padding: 20px;
+    padding: 4vw; /* Относительный padding */
     border-radius: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-align: center;
-    margin: 30px 0;
+    margin: 5vw 0;
 }
 
 .admin-contact a {
-    font-size: 20px;
+    font-size: 4vw;
     color: #0D47A1;
     text-decoration: none;
     font-weight: bold;
@@ -103,16 +107,15 @@ p {
     text-decoration: underline;
 }
 
-/* Стиль для кнопок в разделе FAQ */
 .faq-item {
-    margin-bottom: 20px;
+    margin-bottom: 5vw;
 }
 
 .faq-btn {
     background: linear-gradient(45deg, #FF5722, #FFC107);
     color: #FFFFFF;
-    padding: 20px;
-    font-size: 20px;
+    padding: 4vw;
+    font-size: 4vw;
     border-radius: 30px;
     cursor: pointer;
     transition: background 0.3s ease;
@@ -142,7 +145,7 @@ p {
 
 .modal-content {
     background-color: #FFF;
-    padding: 20px;
+    padding: 4vw;
     border-radius: 10px;
     width: 80%;
     max-width: 500px;
@@ -151,28 +154,28 @@ p {
 
 .close-button {
     float: right;
-    font-size: 24px;
+    font-size: 5vw; /* Относительный размер для кнопки закрытия */
     cursor: pointer;
 }
 
 .buy-btn {
-    margin-top: 20px;
-    font-size: 22px;
+    margin-top: 5vw;
+    font-size: 4vw;
 }
 
-/* Медиа-запрос для мобильных устройств */
+/* Медиа-запросы для небольших экранов */
 @media (max-width: 600px) {
     h1, h2, h3 {
-        font-size: 26px;
+        font-size: 6vw;
     }
 
     p {
-        font-size: 16px;
+        font-size: 4vw;
     }
 
     .menu-btn, .details-btn, .buy-btn, .back-btn, .faq-btn {
-        font-size: 20px;
-        padding: 20px;
+        font-size: 4vw;
+        padding: 5vw;
         width: 95%;
     }
 
