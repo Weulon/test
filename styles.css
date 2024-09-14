@@ -44,7 +44,7 @@ p {
     width: 100%;
     height: 100%;
     overflow-y: auto;
-    padding-bottom: 12vw; /* Увеличиваем нижний отступ */
+    padding-bottom: 60px; /* Увеличиваем нижний отступ для кнопки */
 }
 
 .menu.active {
@@ -59,7 +59,7 @@ p {
     align-items: center;
 }
 
-.menu-btn, .details-btn, .buy-btn, .faq-btn {
+.menu-btn, .details-btn, .buy-btn, .back-btn, .faq-btn {
     background: linear-gradient(45deg, #FF5722, #FFC107);
     color: #FFFFFF;
     border: none;
@@ -97,10 +97,6 @@ p {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     margin-top: auto; /* Оставляем пространство сверху */
     margin-bottom: 20px; /* Увеличиваем отступ снизу для кнопки "Назад" */
-}
-
-.back-btn.hidden {
-    display: none; /* Скрываем кнопку при необходимости */
 }
 
 .admin-contact {
