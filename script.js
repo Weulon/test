@@ -25,8 +25,9 @@ function openModal(planId) {
             content = `
                 <h3>План 1: Оптимизация моделей для 3D печати</h3>
                 <p>Цена: 7 000 руб.</p>
-                <img src="dworf_gnom3.jpg" alt="Оптимизация моделей для 3D печати" style="width: 100%; margin-bottom: 10px;">
+                <img src="path-to-image1.jpg" alt="Оптимизация моделей для 3D печати" style="width: 100%; margin-bottom: 10px;">
                 <p>Описание: Научитесь оптимизировать 3D модели для печати, разрезать модели на части и исправлять ошибки.</p>
+                <a href="https://t.me/tribute/app?startapp=d9nX" target="_blank" class="buy-btn">Купить</a>
             `;
             break;
         case 'plan2':
